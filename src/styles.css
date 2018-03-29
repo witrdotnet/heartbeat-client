@@ -1,1 +1,766 @@
-/* You can add global styles to this file, and also import other style files */
+body{
+	/*background: transparent url('../bg_main.png') repeat scroll 0 0;*/
+}
+
+.rtl{
+	direction: rtl;
+}
+
+.panelFloat{
+	float: left;
+}
+
+.panelFloatrtl{
+	float: right;
+}
+
+.clearFloat{
+	clear: both;
+}
+
+.sidebar{
+	margin : 0 10px;
+}
+
+.sidebar #simple-menu{
+	display: block;
+	height: 21px;
+	width: 1px;
+	background: url('./assets/images/menu.svg') no-repeat;
+	background-size: contain;
+	padding: 0 10px;
+}
+
+.register{
+	display: inline-block;
+	height: 21px;
+	background: url('/assets/images/register.svg') no-repeat;
+	background-size: contain;
+	padding: 0 0 0 20px;
+}
+
+.captcha #captcha_code{
+	margin: 4px 3px 0 0;
+}
+
+.rubrique_title {
+	width: 100%;
+	text-align: center;
+	padding: 5px 0px;
+	background-color: #5AD3D8;
+	font-weight: bold;
+	color: #2D4486;
+	margin-bottom: 10px;
+}
+
+.rubrique_body{
+	text-align: right;
+	background-image: -webkit-gradient(linear, center top, center bottom, from(#fcfcfc), to(#bfbfbf), color-stop(3%, #f7f7f7), color-stop(12%, #f2f2f2), color-stop(90%, #d9d9d9));
+	background-image: -webkit-linear-gradient(top, #fcfcfc, #f7f7f7 3%, #f2f2f2 12%, #d9d9d9 90%, #bfbfbf);
+	background-image: -moz-linear-gradient(top, #fcfcfc, #f7f7f7 3%, #f2f2f2 12%, #d9d9d9 90%, #bfbfbf);
+	background-image: -o-linear-gradient(top, #fcfcfc, #f7f7f7 3%, #f2f2f2 12%, #d9d9d9 90%, #bfbfbf);
+	background-image: -ms-linear-gradient(top, #fcfcfc, #f7f7f7 3%, #f2f2f2 12%, #d9d9d9 90%, #bfbfbf);
+	background-image: linear-gradient(top, #fcfcfc, #f7f7f7 3%, #f2f2f2 12%, #d9d9d9 90%, #bfbfbf);
+	-webkit-box-shadow: 2px 0 20px rgba(0,0,0,0.75);
+	-moz-box-shadow: 2px 0 20px rgba(0,0,0,0.75);
+	box-shadow: 2px 0 20px rgba(0,0,0,0.75);
+	border:2px ridge #0FF0FF;
+	background-color:white;
+	width:500px;
+	margin:30px;
+	float:left;
+	padding: 10px;
+}
+
+.rubrique_body_ghost{
+	opacity: 0.5;
+}
+
+.rubrique_body:hover{
+	box-shadow: 4px 0 40px #231085;
+}
+
+.imgLink{
+	border:none;
+}
+
+imgMirrorH{
+	-webkit-box-reflect: below 3px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(.3, transparent), to(white));
+}
+
+.siteTitleTable td{
+	text-align: center;
+}
+
+.siteTitle, a.siteTitle:hover, a.siteTitle:visited, a.siteTitle:link, a.siteTitle:active {
+	text-shadow:#fff 0px 1px 0, #000 0 -1px 0;
+	font-size:45px;
+	font-weight:bold;
+	color: purple;
+	font-family: 'CopseRegular',Georgia,Serif;
+	margin:20px 0px 0px 0px;
+	text-decoration: none;
+	display: block;
+	height: 51px;
+}
+
+.siteTitleBeta {
+	font-size: 10px;
+	position: relative;
+	color: grey;
+	bottom: 10px;
+	left: 50px;
+	vertical-align: super;
+	text-decoration: none;
+}
+
+.siteTitleBetartl {
+	bottom: 60px;
+	left: -60px;
+}
+
+.siteOwnerTitle {
+	text-shadow:#fff 0px 1px 0, #000 0 -1px 0;
+	font-size:30px;
+	font-weight:normal;
+	color: green;
+	font-family: Tahoma,Georgia,Serif;
+	margin:0 0 30px 0;
+	text-decoration: none;
+	display: block;
+}
+
+.menuBar{
+	z-index: 10;
+	bottom: 12px;
+	background: #5AD3D8;
+	left: 0;
+	right: 0;
+	padding: 10px;
+	margin: 0;
+	text-align: center;
+	color: purple;
+}
+
+.menuBarMask{
+	height: 50px;
+	padding: 10px;
+	margin: 0;
+}
+
+.loginPanel{
+	margin: 0px;
+}
+
+.loginPanel div{
+	display: inline-block;
+	margin-left: 2px;
+}
+
+.loginPanel div.field_label{
+	color: purple;
+}
+
+.loginPanel input[type="text"], .loginPanel input[type="password"]{
+    border-color: rgb(238, 238, 238);
+    border-style: inset;
+    border-width: 2px;
+    box-sizing: border-box;
+    color: rgb(0, 0, 0);
+    cursor: auto;
+    display: inline-block;
+    font-family: Arial;
+    font-size: 13.3333px;
+    font-stretch: 100%;
+    font-style: normal;
+    font-variant-caps: normal;
+    font-variant-ligatures: normal;
+    font-variant-numeric: normal;
+    font-weight: 400;
+    height: 21px;
+    letter-spacing: normal;
+    line-height: normal;
+    margin: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 1px;
+    text-align: start;
+    text-indent: 0px;
+    text-rendering: auto;
+    text-shadow: none;
+    text-transform: none;
+    width: 173px;
+    word-spacing: 0px;
+}
+
+.actionsPanel{
+        position: initial;
+	float: none;
+	padding-top: 0px;
+	border: none;
+}
+
+.actionsPanel div{
+	display: inline-block;
+	margin: 0 10px;
+}
+
+.searchSubmitButton{
+	margin-top: 10px;
+}
+
+.searchInProcess{
+	background: url('/assets/images/loading.gif');
+	background-size: contain;
+	width: 142px;
+	height: 142px;
+	display: inline-block;
+}
+
+.searchInProcessPoemCount{
+	background: url('/assets/images/loading.gif');
+	background-size: contain;
+	width: 34px;
+	height: 34px;
+	display: inline-block;
+}
+
+.tags{
+	margin-bottom: 10px;
+}
+
+.tag{
+	margin: 0 5px;
+	color: gray;
+}
+
+.tag:hover{
+	color: black;
+}
+
+.tagSelected{
+	margin: 0 5px;
+	color: blue;
+	font-weight: bold;
+}
+
+.poemsBar{
+        background: cyan;
+        border: 1px solid silver;
+        padding: 5px;
+        text-align: center;
+	width: 800px;
+}
+
+.poem{
+	margin: 0 5px;
+	color: gray;
+	text-decoration: none;
+	width: 100px;
+	display: inline-block;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.poemPublishedN{
+	color: red;
+	text-decoration: underline;
+}
+
+.poemSelected1{
+	background: url('/assets/images/check.svg') no-repeat;
+	background-size: contain;
+	background-position: right;
+}
+
+.poemSelected1rtl{
+	background: url('/assets/images/check.svg') no-repeat;
+	background-size: contain;
+	background-position: left;
+}
+
+.poem:hover{
+	color: black;
+}
+
+.poemsTable td{
+	width: 250px;
+	border: 1px solid gray;
+	padding: 5px 15px;
+}
+
+.poemsTable .poem{
+	width: inherit;
+}
+
+.col_1_0{
+	text-align: center;
+}
+
+.col_2_0{
+	text-align: right;
+	width: 50%;
+}
+
+.col_2_1{
+	text-align: left;
+	width: 50%;
+}
+
+.formLabel{
+	display: inline-block;
+	color: #323232;
+	font-weight: bold;
+	margin: 10px 5px;
+}
+
+ul.error li{
+	color : red;
+}
+
+.poemTitleActions{
+	background: cyan;
+	padding: 2px;
+	margin: 0 4px;
+}
+
+.poemTitleActions a{
+	margin: 0 4px;
+	color: green;
+	text-decoration: none;
+	border-bottom: 1px solid transparent;
+	display: inline-block;
+	margin-top: 5px;
+}
+
+.poemTitleActions a:hover{
+	border-bottom: 1px dotted green;
+}
+
+select.poemTags{
+	width: 100%;
+}
+
+div.poemTags{
+	width: 100%;
+	opacity: 0.5;
+}
+
+div.poemTags a{
+	margin: 0px 5px;
+}
+
+.topScroller{
+        position: fixed;
+        bottom: 70px;
+        right: 100px;
+	display: none;
+	width: 100px;
+	height: 100px;
+	background: url('/assets/images/topArrow.png') no-repeat center center;
+	background-size: cover;
+}
+
+.homeFooter{
+	margin-top: 50px;
+	width: 100%;
+	background-color: transparent;
+	padding: 20px 0;
+}
+
+.copyrightBar{
+	position: fixed;
+	z-index: 10;
+	bottom: 0px;
+	background: #5AD3D8;
+	left: 0;
+	right: 0;
+	padding: 2px;
+	margin: 0;
+	text-align: center;
+	height: 15px;
+	font-size: 12px;
+	border-top: 1px solid gray;
+	color: #686758;
+	font-family: arial,sans-serif;
+}
+
+.copyrightBar a{
+	color: #686758;
+	font-family: arial,sans-serif;
+	text-decoration: none;
+}
+
+.mainSearchField{
+	width: 500px;
+	height: 28px;
+	padding: 4px;
+}
+
+.searchResultsContainer{
+	width: 600px;
+	text-align: initial;
+}
+
+.searchResultsContainer .resultPoem{
+	margin-top: 20px;
+}
+
+.searchResultsTag, .searchResultsPoem {
+	text-decoration: none;
+}
+
+.searchResultsTag:hover, .searchResultsPoem:hover {
+        text-decoration: underline;
+}
+
+.searchResultsTag{
+	color: #584900;
+}
+
+.searchResultsPoem{
+	color: #58490A;
+}
+
+.searchResultsVerse{
+}
+
+/*
+   Gradient effect generated with :
+   http://www.display-inline.fr/projects/css-gradient/#direction=top-right&alignh=center&startType=name&startValue=gray&endType=name&endValue=gray&step1Type=name&step1Value=lightgrey&step1Position=50&bgColor=trans&size=800&extOpera=1&extIE=1&className=.homeGradient
+*/
+.home{
+/*
+        background :-webkit-gradient(linear, left bottom, right top, from(gray), to(gray), color-stop(0.5, lightgrey));
+        background :-webkit-linear-gradient(left bottom, gray, lightgrey 50%, gray);
+        background :-moz-linear-gradient(left bottom, gray, lightgrey 50%, gray);
+        background :-o-linear-gradient(left bottom, gray, lightgrey 50%, gray);
+        background :linear-gradient(left bottom, gray, lightgrey 50%, gray);
+*/
+	background :cyan;
+}
+
+/*              pen image got from : http://upload.wikimedia.org/wikipedia/commons/6/6e/Swan_nib.jpg
+   GNU Free Documentation License. : http://en.wikipedia.org/wiki/File:Swan_nib.jpg
+*/
+.pen{
+	background: url('/assets/images/pen.png') no-repeat left bottom;
+	width: 906px;
+	height: 582px;
+	left: 0px;
+	bottom: 0px;
+	position: fixed;
+	z-index: -10;
+	opacity: 0.2;
+}
+
+.deewenOwnerPanel{
+	display: inline-block;
+	width: 160px;
+	height: 80px;
+	padding: 5px;
+	margin: 5px;
+	border: 1px solid gray;
+	background: #ffbfbf;
+	color: purple;
+	cursor: pointer;
+}
+
+.deewenOwnerPanel span.deewenOwner {
+	text-decoration: none;
+	color: purple;
+	display: block;
+	height: 18px;
+	overflow: hidden;
+}
+
+.deewenOwnerPoemCount {
+	font-size: 30px;
+	text-align: center;
+	margin: 10px 0px;
+}
+
+.deewenOwnerPoemCountLabel{
+	font-size: 12px;
+	text-align: center;
+}
+
+.deewenPoemPanel{
+	display: inline-block;
+	width: 160px;
+	height: 20px;
+	padding: 5px;
+	margin: 1px;
+	border: 1px solid gray;
+	background: #ffbfbf;
+	color: purple;
+}
+
+.deewenPoemPanel a.deewenOwner {
+	text-decoration: none;
+	color: purple;
+	display: block;
+	height: 18px;
+	overflow: hidden;
+}
+
+.siteLangContainer{
+	direction: ltr;
+}
+
+.siteLangContainer a{
+	color: green;
+	text-decoration: none;
+	margin: 0 15px;
+}
+
+.siteLangContainer a:hover{
+	color: purple;
+	text-decoration: underline;
+}
+
+.siteLangContainer a.selected{
+	font-weight: bold;
+}
+
+.debug{
+	display: none;
+}
+
+.templatePanel{
+	display: inline-block;
+	width: 160px;
+	height: 80px;
+	padding: 5px;
+	margin: 5px;
+	border: 1px solid gray;
+	background: #abaaba;
+	color: purple;
+}
+
+.templatePanel a.templateName {
+	text-decoration: none;
+	color: purple;
+	display: block;
+	font-size: 18px;
+	padding-bottom: 7px;
+	overflow: hidden;
+}
+
+.svgmask{
+	display: inline-block;
+	top: -2px;
+	width: 46px;
+	height: 46px;
+	border: none;
+}
+
+.svgmask-adapt{
+	margin-left: -46px;
+}
+
+.svgmask-adaptrtl{
+	margin-left: -46px;
+}
+
+.svg-menu-object{
+	display: inline-block;
+	width: 46px;
+	height: 46px;
+}
+
+.svg-menu-link {
+	direction: ltr;
+	width: 46px;
+	height: 46px;
+	display: inline-block;
+}
+
+.svg-menu-link:hover {
+	border-bottom: 3px solid #357ae8;
+	cursor: pointer;
+}
+
+.svg-pdfdownload-object{
+	display: inline-block;
+	width: 46px;
+	height: 46px;
+}
+
+.svg-pdfdownload-link {
+	direction: ltr;
+	width: 46px;
+	height: 46px;
+	display: inline-block;
+}
+
+.svg-action-object{
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+}
+
+.svg-action-link {
+	direction: ltr;
+	width: 16px;
+	height: 16px;
+	display: inline-block;
+}
+
+.svgmask-action{
+	display: inline-block;
+	top: -2px;
+	width: 16px;
+	height: 16px;
+	border: none;
+}
+
+.svgmask-action-adapt{
+	margin-top: -16px;
+}
+
+.svgmask-action-adaptrtl{
+	margin-left: -16px;
+}
+
+textarea.poemEdit{
+	padding: 10px;
+	width: 100%;
+}
+
+.poemEditInput {
+	width: 100%;
+	padding: 0 4px;
+}
+
+.poemEditInputTitle {
+	width: 250px;
+	margin-bottom: 5px;
+}
+
+.poemEditInputVerse {
+}
+
+.bookSlct{
+	padding: 0 5px 0 5px;
+}
+
+.aptoideDeeweny{ width: 96px;position: absolute;left: 40px;top: 60px; }
+.aptoideHugo{ width: 150px;position: relative;left: 25px;top: 30px; }
+.aptoide{ border:none;text-decoration:none;display:inline-block;background:url('/assets/images/aptoide_phone.png');width:148px;height:256px; }
+.aptoidePanel{ margin:25px 5px;padding:5px 10px;border:#888 solid 1px;width:110px;height:189px;background:#FFF;text-align:center; }
+.aptoidePanel div{ color:#666;font-size:14px;font-family:Arial;border-bottom:#888 solid 1px;padding-bottom:5px; }
+.aptoidPanel div span { font-size:10px; }
+.aptoideQR{ border:none;margin:7px 0px;width:100px;height:100px; }
+.aptoideMarket{ margin:-3px -5px;padding:1px;width:100px; }
+
+.message{
+	font-family: Arial, 'Arial Narrow', sans-serif;
+	font-size: 14px;
+}
+
+.msgInfo{
+	color: #008000;
+}
+.msgError{
+	color: #E60000;
+}
+.msgDebug{
+	color: #000066;
+}
+
+.settingsTitle {
+	text-shadow:#fff 0px 1px 0, #000 0 -1px 0;
+	font-size:45px;
+	font-weight:bold;
+	color: purple;
+	font-family: 'CopseRegular',Georgia,Serif;
+	margin:20px 0px 0px 0px;
+	text-decoration: none;
+	display: block;
+	height: 51px;
+}
+
+.settingsSubTitle {
+	text-shadow:#fff 0px 1px 0, #000 0 -1px 0;
+	font-size:35px;
+	font-weight:bold;
+	color: green;
+	font-family: 'CopseRegular',Georgia,Serif;
+	margin:20px;
+	text-decoration: none;
+	display: block;
+	height: 51px;
+}
+
+div.settings {
+	border: 1px solid purple;
+	background: rgba(0, 255, 255, 0.5);
+	text-align: left;
+	width: 500px;
+	padding: 15px;
+	margin-top: 15px;
+}
+
+table.settings {
+	width: 100%;
+}
+
+table.settings tr.separator td {
+	height: 20px;
+}
+
+table.settings tr.separator td hr {
+	width: 100%;
+}
+
+table.settings input[type="submit"].next {
+	padding: 20px;
+	float: right;
+}
+
+table.settings input[type="submit"].restart {
+	padding: 20px;
+	float: left;
+}
+
+.poetProfilertl {
+	direction: rtl;
+}
+
+.poetProfile img.gravatar {
+	display: inline-block;
+	overflow: hidden;
+	line-height: 1;
+	vertical-align: middle;
+	border: 0;
+	box-sizing: border-box;
+	width: 230px;
+	height: 230px;
+	border-radius: 6px;
+}
+
+.poetProfile td.gravatar {
+	padding: 5px;
+}
+
+.poetProfile td.i1, .poetProfile td.i2, .poetProfile td.i3, .poetProfile td.i4, .poetProfile td.i5 {
+	display: block;
+	overflow: hidden;
+	font: 13px/1.4 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+	font-size: 18px;
+	line-height: 30px;
+	text-overflow: ellipsis;
+	padding-left: 20px;
+	padding-right: inherit;
+}
+
+.poetProfilertl td.i1, .poetProfilertl td.i2, .poetProfilertl td.i3, .poetProfilertl td.i4, .poetProfilertl td.i5 {
+	padding-left: inherit;
+	padding-right: 20px;
+}
+
+.poetProfile td.i1 {
+	font-size: 26px;
+}
