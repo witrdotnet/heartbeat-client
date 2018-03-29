@@ -4,6 +4,7 @@ import { Component } from '@angular/core';
   selector: 'hb-root',
   template: `
     <div style="text-align:center">
+      <hb-menu></hb-menu>
       <h1>
         Welcome to {{title | hbtranslate}}!
       </h1>

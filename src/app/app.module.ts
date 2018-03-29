@@ -5,12 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { HbtranslatePipe } from './hbtranslate.pipe';
-
+import { HbMenuComponent } from './menu/menu.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HbtranslatePipe
+    HbtranslatePipe,
+    HbMenuComponent
   ],
   imports: [
     BrowserModule,
