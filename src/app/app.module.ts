@@ -4,11 +4,13 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
+import { HbtranslatePipe } from './hbtranslate.pipe';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HbtranslatePipe
   ],
   imports: [
     BrowserModule,

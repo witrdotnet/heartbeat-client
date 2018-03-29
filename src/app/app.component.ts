@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   template: `
     <div style="text-align:center">
       <h1>
-        Welcome to {{title}}!
+        Welcome to {{title | hbtranslate}}!
       </h1>
     </div>
     <router-outlet></router-outlet>
