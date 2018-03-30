@@ -7,6 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class HbMenuComponent implements OnInit {
 
+  @Input() rtl;
   @Input() sidenav;
 
   constructor() { }
