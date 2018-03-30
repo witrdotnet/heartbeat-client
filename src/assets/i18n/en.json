@@ -1,0 +1,19 @@
+{
+		"beta" : "beta version",
+		"pdf.tmpl.default" : "blank",
+		"pdf.tmpl.autumn" : "autumn",
+		"pdf.tmpl.heart" : "heart",
+		"pdf.tmpl.nature" : "nature",
+		"select.all" : "select all",
+		"unselect.all" : "select none",
+		"registration.while.connected.error" : "You are already logged in! You can not create a new account",
+		"mail.signup.subject" : "welcome to Deeweny",
+		"mail.signup.log.subject" : "new registration to Deeweny",
+		"user.profile.title" : "user profile",
+		"user.profile.login" : "login",
+		"user.profile.password" : "password",
+		"user.profile.firstname" : "first name",
+		"user.profile.lastname" : "last name",
+		"user.profile.email" : "email",
+		"user.profile.save" : "save"
+}
