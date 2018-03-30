@@ -1,11 +1,11 @@
 <mat-sidenav-container class="mainContainer">
-  <mat-sidenav class="sidenav" #sidenav mode="side" [position]="sidenavPosition" [(opened)]="opened">
+  <mat-sidenav class="sidenav" #sidenav mode="side" [(opened)]="opened">
     <hb-sidebar></hb-sidebar>
   </mat-sidenav>
   <mat-sidenav-content>
     <div style="text-align:center">
       <hb-menu [sidenav]="sidenav" [rtl]="rtl"></hb-menu>
-      <h1>{{ 'deeweny' | translate }}</h1>
+      <hb-main-search-panel></hb-main-search-panel>
     </div>
     <router-outlet></router-outlet>
   </mat-sidenav-content>

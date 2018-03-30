@@ -90,6 +90,10 @@ imgMirrorH{
 	-webkit-box-reflect: below 3px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(.3, transparent), to(white));
 }
 
+.siteTitleTable {
+	display: inline-block;
+}
+
 .siteTitleTable td{
 	text-align: center;
 }

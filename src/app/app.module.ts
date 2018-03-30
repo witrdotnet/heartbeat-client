@@ -14,6 +14,7 @@ import { AppComponent } from './app.component';
 import { HbtranslatePipe } from './hbtranslate.pipe';
 import { HbMenuComponent } from './menu/menu.component';
 import { HbSidebarComponent } from './sidebar/sidebar.component';
+import { MainSearchPanelComponent } from './main-search-panel/main-search-panel.component';
 
 // translate i18n ngx-translate
 export function HttpLoaderFactory(http: HttpClient) {
@@ -25,7 +26,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppComponent,
     HbtranslatePipe,
     HbMenuComponent,
-    HbSidebarComponent
+    HbSidebarComponent,
+    MainSearchPanelComponent
   ],
   imports: [
     BrowserModule,
