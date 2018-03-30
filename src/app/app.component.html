@@ -1,0 +1,12 @@
+<mat-sidenav-container class="mainContainer">
+  <mat-sidenav class="sidenav" #sidenav mode="side" [(opened)]="opened">
+    <hb-sidebar></hb-sidebar>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div style="text-align:center">
+      <hb-menu [sidenav]="sidenav"></hb-menu>
+      <h1>Welcome to {{title | hbtranslate}}!</h1>
+    </div>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
