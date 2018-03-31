@@ -6,11 +6,11 @@
 </tbody></table>
 
 <div class="siteLangContainer">
-	<button [ngClass]="{ 'selected': translate.currentLang.substring(0,2).toUpperCase() == 'EN' }"
+	<button [ngClass]="{ 'language': true, 'selected': translate.currentLang.substring(0,2).toUpperCase() == 'EN' }"
           (click)="translate.use('en')">english</button>
-	<button [ngClass]="{ 'selected': translate.currentLang.substring(0,2).toUpperCase() == 'FR' }"
+	<button [ngClass]="{ 'language': true, 'selected': translate.currentLang.substring(0,2).toUpperCase() == 'FR' }"
           (click)="translate.use('fr')">français</button>
-	<button [ngClass]="{ 'selected': translate.currentLang.substring(0,2).toUpperCase() == 'AR' }"
+	<button [ngClass]="{ 'language': true, 'selected': translate.currentLang.substring(0,2).toUpperCase() == 'AR' }"
           (click)="translate.use('ar')">عربي</button>
 </div>
 <!--

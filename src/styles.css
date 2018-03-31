@@ -515,18 +515,23 @@ div.poemTags a{
 	direction: ltr;
 }
 
-.siteLangContainer a{
+.siteLangContainer button{
 	color: green;
 	text-decoration: none;
 	margin: 0 15px;
+	padding: 5px;
+	border: none;
+	outline: 0;
+	background-color: transparent;
+	font-size: 16px;
 }
 
-.siteLangContainer a:hover{
+.siteLangContainer button:hover{
 	color: purple;
-	text-decoration: underline;
+	cursor: pointer;
 }
 
-.siteLangContainer a.selected{
+.siteLangContainer button.selected{
 	font-weight: bold;
 }
 
