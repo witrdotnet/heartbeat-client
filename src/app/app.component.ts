@@ -9,6 +9,7 @@ import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 
 export class AppComponent {
   @ViewChild('sidenav') public sidenav;
+  @ViewChild('poetsList') public poetsList;
   rtl = '';
   constructor(private translate: TranslateService) {
     // this language will be used as a fallback when a translation isn't found in the current language
@@ -16,6 +17,7 @@ export class AppComponent {
     // handle rtl
     translate.onLangChange.subscribe((event: LangChangeEvent) => {
       this.sidenav.close();
+      this.poetsList.reloadPoets();
       if(event.lang == 'ar') {
         this.rtl = 'rtl';
         this.sidenav.position = 'end';

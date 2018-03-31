@@ -15,6 +15,9 @@ import { HbtranslatePipe } from './hbtranslate.pipe';
 import { HbMenuComponent } from './menu/menu.component';
 import { HbSidebarComponent } from './sidebar/sidebar.component';
 import { MainSearchPanelComponent } from './main-search-panel/main-search-panel.component';
+import { PoetsListComponent } from './poets-list/poets-list.component';
+
+import { HbRestService } from './hb-rest.service';
 
 // translate i18n ngx-translate
 export function HttpLoaderFactory(http: HttpClient) {
@@ -27,7 +30,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     HbtranslatePipe,
     HbMenuComponent,
     HbSidebarComponent,
-    MainSearchPanelComponent
+    MainSearchPanelComponent,
+    PoetsListComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +47,7 @@ export function HttpLoaderFactory(http: HttpClient) {
             }
         })
   ],
-  providers: [],
+  providers: [HbRestService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
