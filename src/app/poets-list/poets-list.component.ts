@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Poet } from '../hb-classes/poet';
 import { HbRestService } from '../hb-rest.service';
 
@@ -9,6 +9,7 @@ import { HbRestService } from '../hb-rest.service';
 })
 export class PoetsListComponent implements OnInit {
 
+  @Input() rtl;
   poets:Poet[] = [];
 
   constructor(private hbRest: HbRestService) {

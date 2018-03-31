@@ -21,7 +21,7 @@ import { HbRestService } from './hb-rest.service';
 
 // translate i18n ngx-translate
 export function HttpLoaderFactory(http: HttpClient) {
-    return new TranslateHttpLoader(http);
+    return new TranslateHttpLoader(http, "./assets/i18n/", ".json");
 };
 
 @NgModule({

@@ -8,9 +8,10 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class MainSearchPanelComponent implements OnInit {
 
+  @Input() rtl;
   @Input() search: string = '';
 
-  constructor(private translate: TranslateService) { }
+  constructor(public translate: TranslateService) { }
 
   ngOnInit() {
   }
