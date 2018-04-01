@@ -8,8 +8,8 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class MainSearchPanelComponent implements OnInit {
 
-  @Input() rtl;
-  @Input() search: string = '';
+  @Input() rtl: string = '';
+  @Input() searchTerm: string = '';
 
   constructor(public translate: TranslateService) { }
 

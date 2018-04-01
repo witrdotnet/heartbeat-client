@@ -13,12 +13,10 @@
 	<button [ngClass]="{ 'language': true, 'selected': translate.currentLang.substring(0,2).toUpperCase() == 'AR' }"
           (click)="translate.use('ar')">عربي</button>
 </div>
-<!--
 <div class="mainSearchPanel {{ rtl }}">
 	<div><input class="search-query mainSearchField {{ rtl }}"
               type="text"
               [(ngModel)]="search"
               placeholder="{{ 'search'  | translate }}"></div>
-	<div><input class="searchSubmitButton" type="submit" value="{{ 'search'  | translate }}"></div>
+	<div><button class="searchSubmitButton">{{ 'search'  | translate }}</button></div>
 </div>
--->
