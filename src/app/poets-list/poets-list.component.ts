@@ -29,7 +29,11 @@ export class PoetsListComponent implements OnInit {
 
   filterPoets(searchTerm) {
     console.log("filter poets with " + searchTerm + " from " + this.poets.length);
-    this.poetsFiltered = this.poets.filter( poet => searchTerm.length === 0 || poet.name.includes(searchTerm) );
+    this.poetsFiltered = this.poets.filter( poet =>
+      searchTerm.length === 0 ||
+      poet.name.includes(searchTerm) ||
+      poet.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
   }
 
   onSearchChange(event) {
