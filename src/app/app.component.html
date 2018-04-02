@@ -5,7 +5,7 @@
   <mat-sidenav-content>
     <div style="text-align:center">
       <hb-menu [sidenav]="sidenav" [rtl]="rtl"></hb-menu>
-      <hb-main-search-panel [rtl]="rtl"></hb-main-search-panel>
+      <hb-main-search-panel (searchChange)="poetsList.onSearchChange($event)" [rtl]="rtl"></hb-main-search-panel>
       <hb-poets-list #poetsList [rtl]="rtl"></hb-poets-list>
     </div>
     <router-outlet></router-outlet>

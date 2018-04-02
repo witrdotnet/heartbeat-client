@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -10,10 +10,16 @@ export class MainSearchPanelComponent implements OnInit {
 
   @Input() rtl: string = '';
   @Input() searchTerm: string = '';
+  @Output() searchChange: EventEmitter<string> = new EventEmitter<string>();
 
   constructor(public translate: TranslateService) { }
 
   ngOnInit() {
+  }
+
+  onSearchTermChange() {
+    console.log("main search panel onSearchTermChange");
+    this.searchChange.emit(this.searchTerm);
   }
 
 }
