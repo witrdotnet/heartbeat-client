@@ -18,7 +18,6 @@ export class MainSearchPanelComponent implements OnInit {
   }
 
   onSearchTermChange() {
-    console.log("main search panel onSearchTermChange");
     this.searchChange.emit(this.searchTerm);
   }
 

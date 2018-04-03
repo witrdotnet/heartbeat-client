@@ -20,13 +20,10 @@ export class HbSidebarComponent implements OnInit {
   }
 
   toggle() {
-    console.log("toggle sidenav");
     if (!this.sidenavOpened) {
       this.sidenavOpened = true;
-      console.log("switch to true " + this.sidenavOpened);
     } else {
       this.sidenavOpened = false;
-      console.log("switch to false " + this.sidenavOpened);
     }
   }
 }

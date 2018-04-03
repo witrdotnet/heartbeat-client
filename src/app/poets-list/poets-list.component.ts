@@ -28,7 +28,6 @@ export class PoetsListComponent implements OnInit {
   }
 
   filterPoets(searchTerm) {
-    console.log("filter poets with " + searchTerm + " from " + this.poets.length);
     this.poetsFiltered = this.poets.filter( poet =>
       searchTerm.length === 0 ||
       poet.name.includes(searchTerm) ||
@@ -37,7 +36,6 @@ export class PoetsListComponent implements OnInit {
   }
 
   onSearchChange(event) {
-    console.log("poetsList onSearchChange " + event);
     this.filterPoets(event);
   }
 
