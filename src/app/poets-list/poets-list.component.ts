@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Poet } from '../hb-classes/poet';
 import { HbRestService } from '../hb-rest.service';
+import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 
 @Component({
   selector: 'hb-poets-list',
@@ -9,12 +10,15 @@ import { HbRestService } from '../hb-rest.service';
 })
 export class PoetsListComponent implements OnInit {
 
-  @Input() rtl: string;
+  @Input() rtl: string = '';
   poets:Poet[] = [];
   poetsFiltered:Poet[] = [];
 
-  constructor(private hbRest: HbRestService) {
+  constructor(private translate: TranslateService, private hbRest: HbRestService) {
     this.reloadPoets();
+    translate.onLangChange.subscribe((event: LangChangeEvent) => {
+      this.reloadPoets();
+    });
   }
 
   ngOnInit() {

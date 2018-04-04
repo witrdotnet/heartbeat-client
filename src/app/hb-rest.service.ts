@@ -2,17 +2,29 @@ import { Injectable } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/of';
 import { Poet } from './hb-classes/poet';
+import { Poem } from './hb-classes/poem';
 import { environment } from '../environments/environment';
 
 @Injectable()
 export class HbRestService {
 
-  private heartbeatApi = environment.heartbeatApiRootUrl + '/HB.php/hbcore/poets/';
+  private heartbeatApiPoets = environment.heartbeatApiRootUrl + '/HB.php/hbcore/poets/';
+  private heartbeatApiPoet = environment.heartbeatApiRootUrl + '/HB.php/hbcore/poet/';
+  private heartbeatApiPoems = environment.heartbeatApiRootUrl + '/HB.php/hbcore/poems/';
 
   constructor(private http: HttpClient, private translate: TranslateService) { }
 
   getPoets(): Observable<Poet[]> {
-    return this.http.get<Poet[]>(this.heartbeatApi + this.translate.currentLang);
+    return this.http.get<Poet[]>(this.heartbeatApiPoets + this.translate.currentLang);
+  }
+
+  getPoems(poetId: number): Observable<Poem[]> {
+    return this.http.get<Poem[]>(this.heartbeatApiPoems + poetId);
+  }
+
+  getPoet(poetId: number): Observable<Poet> {
+    return this.http.get<Poet>(this.heartbeatApiPoet + poetId);
   }
 }

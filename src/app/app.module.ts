@@ -19,6 +19,10 @@ import { MainSearchPanelComponent } from './main-search-panel/main-search-panel.
 import { PoetsListComponent } from './poets-list/poets-list.component';
 
 import { HbRestService } from './hb-rest.service';
+import { PoemsListComponent } from './poems-list/poems-list.component';
+import { HomeComponent } from './home/home.component';
+import { PoetHomeComponent } from './poet-home/poet-home.component';
+import { PoetSearchPanelComponent } from './poet-search-panel/poet-search-panel.component';
 
 // translate i18n ngx-translate
 export function HttpLoaderFactory(http: HttpClient) {
@@ -32,7 +36,11 @@ export function HttpLoaderFactory(http: HttpClient) {
     HbMenuComponent,
     HbSidebarComponent,
     MainSearchPanelComponent,
-    PoetsListComponent
+    PoetsListComponent,
+    PoemsListComponent,
+    HomeComponent,
+    PoetHomeComponent,
+    PoetSearchPanelComponent
   ],
   imports: [
     BrowserModule,

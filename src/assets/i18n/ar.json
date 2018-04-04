@@ -70,5 +70,6 @@
 		"import" : "تحميل",
 		"proceed import" : "تطبيق التحميل",
 		"cancel import" : "إلغاء التحميل",
-		"export data" : "تصدير"
+		"export data" : "تصدير",
+		"verse(s)" : "عدد الأبيات"
 }

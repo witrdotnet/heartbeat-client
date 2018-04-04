@@ -1,7 +1,5 @@
-<div id="cid1755Panel" class="deewenOwnerPanel {{ rtl }}" *ngFor="let poet of poetsFiltered" (click)="goToPoet(poet)">
+<div class="deewenOwnerPanel {{ rtl }}" *ngFor="let poet of poetsFiltered" routerLink="/poet/{{ poet.id }}">
         <span class="deewenOwner" title="{{ poet.name }}">{{ poet.name }}</span>
         <div id="cid{{ poet.id }}PoemCount" class="deewenOwnerPoemCount">{{ poet.poemsPublishedCount || 0 }}</div>
         <div class="deewenOwnerPoemCountLabel">{{ 'poem(s)'  | translate }}</div>
 </div>
-
-<br/><div class="deewenOwnerPanel {{ rtl }}"><a href="#/poet"><i class="icon-plus-sign"></i></a></div><br/>

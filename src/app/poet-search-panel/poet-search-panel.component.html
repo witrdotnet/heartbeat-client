@@ -1,0 +1,60 @@
+<table class="siteTitleTable">
+  <tbody><tr><td>
+    <a href="#/" class="siteTitle">{{ 'deeweny' | translate }}</a>
+    <span class="siteTitleBeta siteTitleBeta{{ rtl }}">{{ 'beta' | translate }}</span>
+  </td></tr>
+</tbody></table>
+
+<div class="siteOwnerTitle">{{ poet.name }}</div>
+
+<div class="siteLangContainer">
+  <!-- menu poet home -->
+  <button class="svg-menu-link" (click)="menuPoetProfile()" title="Home">
+    <object class="svg-menu-object" data="https://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=80&amp;d=mm&amp;r=g"> </object>
+    <span class="svgmask svgmask-adapt"></span>
+  </button>
+
+  <!-- menu home -->
+  <button class="svg-menu-link" (click)="menuHome()" title="Home">
+    <object class="svg-menu-object" type="image/svg+xml" data="./assets/images/list.svg"> </object>
+    <span class="svgmask svgmask-adapt"></span>
+  </button>
+
+  <!-- menu poems contents -->
+  <button class="svg-menu-link" (click)="menuReadPoems()" title="all poems (1)">
+    <object class="svg-menu-object" type="image/svg+xml" data="./assets/images/read.svg"> </object>
+    <span class="svgmask svgmask-adapt"></span>
+  </button>
+
+  <!-- menu new poem -->
+
+  <!-- menu poet on wiki -->
+  <button class="svg-menu-link" (click)="menuPoetWiki()" title="poet on wiki">
+    <object class="svg-menu-object" type="image/svg+xml" data="./assets/images/wiki.svg"> </object>
+    <span class="svgmask svgmask-adapt"></span>
+  </button>
+
+  <!-- menu PDF -->
+  <!--
+  <button class="svg-menu-link" (click)="../deewenyPDF?poetId={{poet.id}}&lang={{lang.substring(0,2)}}" target="_blank" title="Download PDF">
+    <object class="svg-menu-object" type="image/svg+xml" data="../resources/images/pdf.svg"> </object>
+    <span class="svgmask svgmask-adapt"></span>
+  </button>
+  -->
+
+  <!-- menu PDF customized -->
+  <button class="svg-menu-link" (click)="menuCustomizePDF()" title="personnalize PDF">
+    <object class="svg-menu-object" type="image/svg+xml" data="./assets/images/pdfperso.svg"> </object>
+    <span class="svgmask svgmask-adapt"></span>
+  </button>
+
+</div>
+
+<div class="mainSearchPanel {{ rtl }}">
+	<div><input class="search-query mainSearchField {{ rtl }}"
+              type="text"
+              [(ngModel)]="searchTerm"
+              (keyup)="onSearchTermChange()"
+              placeholder="{{ 'search'  | translate }}"></div>
+	<div><button class="searchSubmitButton">{{ 'search'  | translate }}</button></div>
+</div>

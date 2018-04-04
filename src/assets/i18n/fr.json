@@ -69,5 +69,6 @@
 		"import" : "importer",
 		"proceed import" : "appliquer l'import",
 		"cancel import" : "annuler l'import",
-		"export data" : "exporter"
+		"export data" : "exporter",
+		"verse(s)" : "vers"
 }
