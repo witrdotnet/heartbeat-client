@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import 'rxjs/add/operator/switchMap';
 import { Poet } from '../hb-classes/poet'
@@ -9,14 +9,15 @@ import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 @Component({
   selector: 'hb-poet-home',
   template: `
-  <hb-poet-search-panel [poet]="poet" (searchChange)="poemsList.onSearchChange($event)" [rtl]="rtl"></hb-poet-search-panel>
-  <hb-poems-list *ngIf="!selectedPoem" #poemsList [poet]="poet" [rtl]="rtl"></hb-poems-list>
+  <hb-poet-search-panel [poet]="poet" (searchChange)="poemsListComponent.onSearchChange($event)" [rtl]="rtl"></hb-poet-search-panel>
+  <hb-poems-list *ngIf="!selectedPoem" #poemsListComponent [poet]="poet" [rtl]="rtl"></hb-poems-list>
   <hb-poem *ngIf="selectedPoem" class="hb-poem-panel" [poem]="selectedPoem"></hb-poem>
   `,
   styles: []
 })
 export class PoetHomeComponent implements OnInit {
 
+  @ViewChild('poemsListComponent') public poemsListComponent;
 
   rtl: string = '';
   poet: Poet = {
