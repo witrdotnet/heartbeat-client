@@ -4,7 +4,8 @@ import { HomeComponent } from './home/home.component';
 import { PoetHomeComponent } from './poet-home/poet-home.component';
 
 const routes: Routes = [
-  { path: 'poet/:id', component: PoetHomeComponent },
+  { path: 'poet/:poetid', component: PoetHomeComponent },
+  { path: 'poem/:poetid/:poemid', component: PoetHomeComponent },
   { path: 'home', component: HomeComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' }
 ];

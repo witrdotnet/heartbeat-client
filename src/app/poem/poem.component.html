@@ -1,0 +1,14 @@
+<div class="rubrique_body ">
+  <div class="rubrique_title">
+    <div>{{ poem.name }}</div>
+  </div>
+  <table class="" style="width:100%;">
+    <tbody>
+      <tr *ngFor="let verse of verses">
+        <td class="col_1_0">{{ verse.text }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <hr>
+  <div class="poemTags">&nbsp;</div>
+</div>

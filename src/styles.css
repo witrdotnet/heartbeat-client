@@ -583,7 +583,6 @@ div.poemTags a{
 
 .svg-menu-link {
 	direction: ltr;
-	width: 46px;
 	height: 46px;
 	display: inline-block;
 }
@@ -774,4 +773,8 @@ table.settings input[type="submit"].restart {
 
 .poetProfile td.i1 {
 	font-size: 26px;
+}
+
+.hb-poem-panel {
+	display: inline-block;
 }

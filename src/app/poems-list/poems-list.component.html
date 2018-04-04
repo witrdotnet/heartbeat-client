@@ -1,4 +1,4 @@
-<div class="deewenOwnerPanel {{ rtl }}" *ngFor="let poem of poemsFiltered" routerLink="/poem/{{ poem.id }}">
+<div class="deewenOwnerPanel {{ rtl }}" *ngFor="let poem of poemsFiltered" routerLink="/poem/{{ poet.id }}/{{ poem.id }}">
         <span class="deewenOwner" title="{{ poem.name }}">{{ poem.name }}</span>
         <div class="deewenOwnerPoemCount">{{ poem.versesCount || 0 }}</div>
         <div class="deewenOwnerPoemCountLabel">{{ 'verse(s)'  | translate }}</div>

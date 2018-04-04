@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Poet } from '../hb-classes/poet';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'hb-poet-search-panel',
@@ -13,13 +14,18 @@ export class PoetSearchPanelComponent implements OnInit {
     @Input() searchTerm: string = '';
     @Output() searchChange: EventEmitter<string> = new EventEmitter<string>();
 
-    constructor() { }
+    constructor(private translate: TranslateService) { }
 
     ngOnInit() {
     }
 
     onSearchTermChange() {
       this.searchChange.emit(this.searchTerm);
+    }
+
+    openPoetWiki() {
+      var wikiURL = "http://" + this.translate.currentLang.substring(0,2).toLowerCase() + ".wikipedia.org/wiki/" + this.poet.name.replace(" ","_");
+      window.open(wikiURL, "_blank");
     }
 
 }

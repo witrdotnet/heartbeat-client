@@ -13,6 +13,7 @@ export class HbRestService {
   private heartbeatApiPoets = environment.heartbeatApiRootUrl + '/HB.php/hbcore/poets/';
   private heartbeatApiPoet = environment.heartbeatApiRootUrl + '/HB.php/hbcore/poet/';
   private heartbeatApiPoems = environment.heartbeatApiRootUrl + '/HB.php/hbcore/poems/';
+  private heartbeatApiPoem = environment.heartbeatApiRootUrl + '/HB.php/hbcore/poem/';
 
   constructor(private http: HttpClient, private translate: TranslateService) { }
 
@@ -26,5 +27,9 @@ export class HbRestService {
 
   getPoet(poetId: number): Observable<Poet> {
     return this.http.get<Poet>(this.heartbeatApiPoet + poetId);
+  }
+
+  getPoem(poetId: number, poemId: number): Observable<Poem> {
+    return this.http.get<Poem>(this.heartbeatApiPoem + poetId + "/" + poemId);
   }
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import 'rxjs/add/operator/switchMap';
 import { Poet } from '../hb-classes/poet'
+import { Poem } from '../hb-classes/poem'
 import { HbRestService } from '../hb-rest.service';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 
@@ -9,7 +10,8 @@ import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
   selector: 'hb-poet-home',
   template: `
   <hb-poet-search-panel [poet]="poet" (searchChange)="poemsList.onSearchChange($event)" [rtl]="rtl"></hb-poet-search-panel>
-  <hb-poems-list #poemsList [poet]="poet" [rtl]="rtl"></hb-poems-list>
+  <hb-poems-list *ngIf="!selectedPoem" #poemsList [poet]="poet" [rtl]="rtl"></hb-poems-list>
+  <hb-poem *ngIf="selectedPoem" class="hb-poem-panel" [poem]="selectedPoem"></hb-poem>
   `,
   styles: []
 })
@@ -21,6 +23,7 @@ export class PoetHomeComponent implements OnInit {
     "id": -1,
     "name": ""
   };
+  selectedPoem: Poem;
 
   constructor(
     private route: ActivatedRoute,
@@ -43,9 +46,16 @@ export class PoetHomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    let id = this.route.snapshot.paramMap.get('id');
-    this.hbRest.getPoet(Number(id)).subscribe(poet => {
+    let poetid = this.route.snapshot.paramMap.get('poetid');
+    let poemid = this.route.snapshot.paramMap.get('poemid');
+    this.hbRest.getPoet(Number(poetid)).subscribe(poet => {
       this.poet = poet;
+      if(this.poet && poemid) {
+        console.log("about to select poem " + poemid);
+        this.hbRest.getPoem(Number(poetid), Number(poemid)).subscribe(poem => {
+          this.selectedPoem = poem;
+        });
+      }
     });
   }
 

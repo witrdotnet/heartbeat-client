@@ -23,6 +23,7 @@ import { PoemsListComponent } from './poems-list/poems-list.component';
 import { HomeComponent } from './home/home.component';
 import { PoetHomeComponent } from './poet-home/poet-home.component';
 import { PoetSearchPanelComponent } from './poet-search-panel/poet-search-panel.component';
+import { PoemComponent } from './poem/poem.component';
 
 // translate i18n ngx-translate
 export function HttpLoaderFactory(http: HttpClient) {
@@ -40,7 +41,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     PoemsListComponent,
     HomeComponent,
     PoetHomeComponent,
-    PoetSearchPanelComponent
+    PoetSearchPanelComponent,
+    PoemComponent
   ],
   imports: [
     BrowserModule,
