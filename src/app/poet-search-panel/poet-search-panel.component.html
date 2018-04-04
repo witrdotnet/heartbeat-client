@@ -9,7 +9,7 @@
 
 <div class="siteLangContainer">
   <!-- menu poet home -->
-  <button class="svg-menu-link" (click)="menuPoetProfile()" title="Home">
+  <button class="svg-menu-link" title="Home">
     <object class="svg-menu-object" data="https://www.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=80&amp;d=mm&amp;r=g"> </object>
     <span class="svgmask svgmask-adapt"></span>
   </button>
@@ -21,7 +21,7 @@
   </div>
 
   <!-- menu poems contents -->
-  <button class="svg-menu-link" (click)="menuReadPoems()" title="all poems (1)">
+  <button class="svg-menu-link" title="all poems ({{ poet.poemsPublishedCount || 0 }})">
     <object class="svg-menu-object" type="image/svg+xml" data="./assets/images/read.svg"> </object>
     <span class="svgmask svgmask-adapt"></span>
   </button>
@@ -43,7 +43,7 @@
   -->
 
   <!-- menu PDF customized -->
-  <button class="svg-menu-link" (click)="menuCustomizePDF()" title="personnalize PDF">
+  <button class="svg-menu-link" title="personnalize PDF">
     <object class="svg-menu-object" type="image/svg+xml" data="./assets/images/pdfperso.svg"> </object>
     <span class="svgmask svgmask-adapt"></span>
   </button>
