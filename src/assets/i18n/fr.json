@@ -70,5 +70,7 @@
 		"proceed import" : "appliquer l'import",
 		"cancel import" : "annuler l'import",
 		"export data" : "exporter",
-		"verse(s)" : "vers"
+		"verse(s)" : "vers",
+		"pagination.previous" : "précédent",
+		"pagination.next" : "suivant"
 }

@@ -25,6 +25,8 @@ import { PoetHomeComponent } from './poet-home/poet-home.component';
 import { PoetSearchPanelComponent } from './poet-search-panel/poet-search-panel.component';
 import { PoemComponent } from './poem/poem.component';
 
+import { NgxPaginationModule } from 'ngx-pagination';
+
 // translate i18n ngx-translate
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http, "./assets/i18n/", ".json");
@@ -57,7 +59,8 @@ export function HttpLoaderFactory(http: HttpClient) {
                 deps: [HttpClient]
             }
         }),
-    FormsModule
+    FormsModule,
+    NgxPaginationModule
   ],
   providers: [HbRestService],
   bootstrap: [AppComponent]

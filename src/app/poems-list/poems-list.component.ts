@@ -14,6 +14,7 @@ export class PoemsListComponent implements OnChanges {
   @Input() poet: Poet;
   poems: Poem[] = [];
   poemsFiltered: Poem[];
+  p: number = 1;
 
     constructor(private hbRest: HbRestService) {
     }

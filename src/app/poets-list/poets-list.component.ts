@@ -13,6 +13,7 @@ export class PoetsListComponent implements OnInit {
   @Input() rtl: string = '';
   poets:Poet[] = [];
   poetsFiltered:Poet[] = [];
+  p: number = 1;
 
   constructor(private translate: TranslateService, private hbRest: HbRestService) {
     this.reloadPoets();

@@ -15,5 +15,7 @@
 		"user.profile.firstname" : "first name",
 		"user.profile.lastname" : "last name",
 		"user.profile.email" : "email",
-		"user.profile.save" : "save"
+		"user.profile.save" : "save",
+		"pagination.previous" : "previous",
+		"pagination.next" : "next"
 }

@@ -778,3 +778,13 @@ table.settings input[type="submit"].restart {
 .hb-poem-panel {
 	display: inline-block;
 }
+
+.ngx-pagination {
+    margin-left: 0;
+    margin-bottom: 1rem;
+    -webkit-padding-start: 0px;
+}
+
+.ngx-pagination li:first-child, .ngx-pagination li:last-child {
+	width: 150px;
+}

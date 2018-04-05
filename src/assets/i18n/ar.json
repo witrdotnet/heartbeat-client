@@ -71,5 +71,7 @@
 		"proceed import" : "تطبيق التحميل",
 		"cancel import" : "إلغاء التحميل",
 		"export data" : "تصدير",
-		"verse(s)" : "عدد الأبيات"
+		"verse(s)" : "عدد الأبيات",
+		"pagination.previous" : "سابق",
+		"pagination.next" : "لاحق"
 }

@@ -1,5 +1,7 @@
-<div class="deewenOwnerPanel {{ rtl }}" *ngFor="let poet of poetsFiltered" routerLink="/poet/{{ poet.id }}">
+<pagination-controls (pageChange)="p = $event" previousLabel="{{ 'pagination.previous' | translate }}" nextLabel="{{ 'pagination.next' | translate }}"></pagination-controls>
+<div class="deewenOwnerPanel {{ rtl }}" *ngFor="let poet of poetsFiltered | paginate: { itemsPerPage: 50, currentPage: p }" routerLink="/poet/{{ poet.id }}">
         <span class="deewenOwner" title="{{ poet.name }}">{{ poet.name }}</span>
         <div id="cid{{ poet.id }}PoemCount" class="deewenOwnerPoemCount">{{ poet.poemsPublishedCount || 0 }}</div>
         <div class="deewenOwnerPoemCountLabel">{{ 'poem(s)'  | translate }}</div>
 </div>
+<pagination-controls (pageChange)="p = $event" previousLabel="{{ 'pagination.previous' | translate }}" nextLabel="{{ 'pagination.next' | translate }}"></pagination-controls>
