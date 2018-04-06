@@ -3,7 +3,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
-import { Poet } from './hb-classes/poet';
+import { Poet, PoetsSearchResult } from './hb-classes/poet';
 import { Poem } from './hb-classes/poem';
 import { environment } from '../environments/environment';
 
@@ -17,8 +17,9 @@ export class HbRestService {
 
   constructor(private http: HttpClient, private translate: TranslateService) { }
 
-  getPoets(): Observable<Poet[]> {
-    return this.http.get<Poet[]>(this.heartbeatApiPoets + this.translate.currentLang);
+  getPoets(page: number, itemsPerPage: number, searchTerm: string): Observable<PoetsSearchResult> {
+    var from: number = (page -1) * itemsPerPage;
+    return this.http.get<PoetsSearchResult>(this.heartbeatApiPoets + this.translate.currentLang + "/" + searchTerm + "/" + itemsPerPage + "/" + from);
   }
 
   getPoems(poetId: number): Observable<Poem[]> {

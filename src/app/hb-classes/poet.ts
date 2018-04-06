@@ -3,3 +3,8 @@ export class Poet {
   name: string;
   poemsPublishedCount: number;
 }
+
+export class PoetsSearchResult {
+  totalItems: number;
+  items: Poet[];
+}

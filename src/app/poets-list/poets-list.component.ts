@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Poet } from '../hb-classes/poet';
 import { HbRestService } from '../hb-rest.service';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
+import { PaginationParam } from '../hb-classes/paginationParam'
 
 @Component({
   selector: 'hb-poets-list',
@@ -12,36 +13,42 @@ export class PoetsListComponent implements OnInit {
 
   @Input() rtl: string = '';
   poets:Poet[] = [];
-  poetsFiltered:Poet[] = [];
-  p: number = 1;
+  paginationParam: PaginationParam = {
+    itemsPerPage: 50,
+    currentPage: 1,
+    totalItems: 0
+  };
+  searchTerm: string = '';
 
   constructor(private translate: TranslateService, private hbRest: HbRestService) {
-    this.reloadPoets();
+    this.resetPoets();
     translate.onLangChange.subscribe((event: LangChangeEvent) => {
-      this.reloadPoets();
+      this.resetPoets();
     });
   }
 
   ngOnInit() {
   }
 
-  reloadPoets() {
-    this.hbRest.getPoets().subscribe(poets => {
-      this.poets = poets;
-      this.filterPoets("");
+  getPage(page: number) {
+      this.reloadPoets(page);
+  }
+
+  resetPoets() {
+    this.reloadPoets(1)
+  }
+
+  reloadPoets(page: number) {
+    this.hbRest.getPoets(page, this.paginationParam.itemsPerPage, this.searchTerm).subscribe(response => {
+      this.paginationParam.totalItems = response.totalItems;
+      this.paginationParam.currentPage = page;
+      this.poets = response.items;
     });
   }
 
-  filterPoets(searchTerm) {
-    this.poetsFiltered = this.poets.filter( poet =>
-      searchTerm.length === 0 ||
-      poet.name.includes(searchTerm) ||
-      poet.name.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-  }
-
   onSearchChange(event) {
-    this.filterPoets(event);
+    this.searchTerm = event;
+    this.resetPoets();
   }
 
 }
