@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Poet } from '../hb-classes/poet';
 import { HbRestService } from '../hb-rest.service';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
-import { PaginationParam } from '../hb-classes/paginationParam'
+import { PaginationParam } from '../hb-classes/paginationParam';
 
 @Component({
   selector: 'hb-poets-list',

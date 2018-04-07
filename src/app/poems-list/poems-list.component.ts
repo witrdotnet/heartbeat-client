@@ -1,7 +1,8 @@
 import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { Poem } from '../hb-classes/poem'
-import { Poet } from '../hb-classes/poet'
+import { Poem } from '../hb-classes/poem';
+import { Poet } from '../hb-classes/poet';
 import { HbRestService } from '../hb-rest.service';
+import { PaginationParam } from '../hb-classes/paginationParam';
 
 @Component({
   selector: 'hb-poems-list',
@@ -10,11 +11,15 @@ import { HbRestService } from '../hb-rest.service';
 })
 export class PoemsListComponent implements OnChanges {
 
-  @Input() rtl: string;
+  @Input() rtl: string = '';
   @Input() poet: Poet;
   poems: Poem[] = [];
-  poemsFiltered: Poem[];
-  p: number = 1;
+  paginationParam: PaginationParam = {
+    itemsPerPage: 50,
+    currentPage: 1,
+    totalItems: 0
+  };
+  searchTerm: string = '';
 
     constructor(private hbRest: HbRestService) {
     }
@@ -22,31 +27,29 @@ export class PoemsListComponent implements OnChanges {
     ngOnChanges(changes: SimpleChanges) {
       for (let propName in changes) {
         if(propName === "poet") {
-          this.reloadPoems();
+          this.resetPoems();
         }
       }
     }
 
-    reloadPoems() {
-      console.log("reloadPoets:" + this.poet.id);
-      this.hbRest.getPoems(this.poet.id).subscribe(poems => {
-        this.poems = poems;
-        this.filterPoems("");
+  getPage(page: number) {
+      this.reloadPoems(page);
+  }
+
+  resetPoems() {
+    this.reloadPoems(1);
+  }
+
+    reloadPoems(page: number) {
+      this.hbRest.getPoems(this.poet.id, page, this.paginationParam.itemsPerPage, this.searchTerm).subscribe(response => {
+        this.paginationParam.totalItems = response.totalItems;
+        this.paginationParam.currentPage = page;
+        this.poems = response.items;
       });
     }
 
-    filterPoems(searchTerm) {
-      this.poemsFiltered = [];
-      if (this.poems) {
-        this.poemsFiltered = this.poems.filter( poem =>
-          searchTerm.length === 0 ||
-          poem.name.includes(searchTerm) ||
-          poem.name.toLowerCase().includes(searchTerm.toLowerCase())
-        );
-      }
-    }
-
     onSearchChange(event) {
-      this.filterPoems(event);
+    this.searchTerm = event;
+    this.resetPoems();
     }
 }

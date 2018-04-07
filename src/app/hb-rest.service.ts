@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 import { Poet, PoetsSearchResult } from './hb-classes/poet';
-import { Poem } from './hb-classes/poem';
+import { Poem, PoemsSearchResult } from './hb-classes/poem';
 import { environment } from '../environments/environment';
 
 @Injectable()
@@ -22,8 +22,9 @@ export class HbRestService {
     return this.http.get<PoetsSearchResult>(this.heartbeatApiPoets + this.translate.currentLang + "/" + searchTerm + "/" + itemsPerPage + "/" + from);
   }
 
-  getPoems(poetId: number): Observable<Poem[]> {
-    return this.http.get<Poem[]>(this.heartbeatApiPoems + poetId);
+  getPoems(poetId: number, page: number, itemsPerPage: number, searchTerm: string): Observable<PoemsSearchResult> {
+    var from: number = (page -1) * itemsPerPage;
+    return this.http.get<PoemsSearchResult>(this.heartbeatApiPoems + poetId + "/" + searchTerm + "/" + itemsPerPage + "/" + from);
   }
 
   getPoet(poetId: number): Observable<Poet> {

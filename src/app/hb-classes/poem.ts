@@ -5,3 +5,8 @@ export class Poem {
   name: string;
   verses: Verse[];
 }
+
+export class PoemsSearchResult {
+  totalItems: number;
+  items: Poem[];
+}
