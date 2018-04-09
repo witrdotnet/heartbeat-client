@@ -21,7 +21,6 @@ export class PoetsListComponent implements OnInit {
   searchTerm: string = '';
 
   constructor(private translate: TranslateService, private hbRest: HbRestService) {
-    this.resetPoets();
     translate.onLangChange.subscribe((event: LangChangeEvent) => {
       this.resetPoets();
     });
