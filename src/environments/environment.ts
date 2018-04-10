@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  heartbeatApiRootUrl: 'http://172.17.0.2/heartbeat/api'
+  heartbeatApiRootUrl: 'http://172.17.0.3/heartbeat/restapi'
 };

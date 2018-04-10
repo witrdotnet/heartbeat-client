@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  heartbeatApiRootUrl: 'https://witr.net/heartbeat/api'
+  heartbeatApiRootUrl: 'https://witr.net/heartbeat/restapi'
 };
