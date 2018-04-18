@@ -3,19 +3,37 @@
 		<a id="simple-menu" (click)="sidenav.toggle()"></a>
 	</div>
 
-	<form class="loginPanel {{ rtl }} panelFloat{{ rtl }}" target="_top" method="post" action="index">
+	<form class="loginPanel {{ rtl }} panelFloat{{ rtl }}" name="form" *ngIf="!authService.isLoggedIn()" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
 		<div>
 			<div class="field_label">{{ 'login' | translate }}</div>
-			<div><input class="field_input" type="text" name="user"></div>
+			<div><input class="field_input" type="text" name="user" [(ngModel)]="model.username" #username="ngModel" required /></div>
 		</div>
 		<div>
 			<div class="field_label">{{ 'password' | translate }}</div>
-			<div><input class="field_input" type="password" name="password"></div>
+			<div><input class="field_input" type="password" name="password" [(ngModel)]="model.password" #password="ngModel" required /></div>
 		</div>
-		<div class="loginSubmit"><input type="submit" value="{{ 'connection' | translate }}"></div>
+		<div class="loginSubmit">
+			<button [disabled]="loading" class="btn btn-primary">{{ 'connection' | translate }}</button>
+		</div>
 	</form>
 
-	<div class="actionsPanel {{ rtl }}">
+	<form class="loginPanel {{ rtl }} panelFloat{{ rtl }}" name="form" *ngIf="authService.isLoggedIn()" (ngSubmit)="f.form.valid && logout()" #f="ngForm" novalidate>
+		<div>
+			<div class="field_label">{{ currentUser.nickname }}</div>
+		</div>
+		<div>
+			<div class="field_label">{{ currentUser.firstname }}</div>
+		</div>
+		<div>
+			<div class="field_label">{{ currentUser.birthname }}</div>
+		</div>
+		<div class="loginSubmit">
+			<button [disabled]="loading" class="btn btn-primary">{{ 'disconnect' | translate }}</button>
+			<!-- <input type="submit" value="{{ 'connection' | translate }}"> -->
+		</div>
+	</form>
+
+	<div class="actionsPanel {{ rtl }}" *ngIf="!authService.isLoggedIn()">
 		<div class="field_label">
 			<a class="register" target="_top" href="signup">{{ 'sign up' | translate }}</a>
 		</div>

@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 // translate i18n ngx-translate
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
@@ -19,11 +19,13 @@ import { MainSearchPanelComponent } from './main-search-panel/main-search-panel.
 import { PoetsListComponent } from './poets-list/poets-list.component';
 
 import { HbRestService } from './hb-rest.service';
+import { AuthenticationService } from './hb.auth.service';
 import { PoemsListComponent } from './poems-list/poems-list.component';
 import { HomeComponent } from './home/home.component';
 import { PoetHomeComponent } from './poet-home/poet-home.component';
 import { PoetSearchPanelComponent } from './poet-search-panel/poet-search-panel.component';
 import { PoemComponent } from './poem/poem.component';
+import { JwtInterceptor } from './hb.jwt.interceptor';
 
 import { NgxPaginationModule } from 'ngx-pagination';
 
@@ -62,7 +64,15 @@ export function HttpLoaderFactory(http: HttpClient) {
     FormsModule,
     NgxPaginationModule
   ],
-  providers: [HbRestService],
+  providers: [
+    HbRestService,
+    AuthenticationService,
+    {
+        provide: HTTP_INTERCEPTORS,
+        useClass: JwtInterceptor,
+        multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
