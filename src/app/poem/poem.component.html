@@ -5,7 +5,7 @@
   <table class="" style="width:100%;">
     <tbody>
       <tr *ngFor="let verse of verses">
-        <td class="col_1_0">{{ verse.text }}</td>
+        <td class="col_1_0">{{ verse.text.replace("WITR_BREAK_SECTION","***") }}</td>
       </tr>
     </tbody>
   </table>
