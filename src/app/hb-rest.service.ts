@@ -10,10 +10,10 @@ import { environment } from '../environments/environment';
 @Injectable()
 export class HbRestService {
 
-  private heartbeatApiPoets = environment.heartbeatApiRootUrl + '/HB.php/hbcore/poets/';
-  private heartbeatApiPoet = environment.heartbeatApiRootUrl + '/HB.php/hbcore/poet/';
-  private heartbeatApiPoems = environment.heartbeatApiRootUrl + '/HB.php/hbcore/poems/';
-  private heartbeatApiPoem = environment.heartbeatApiRootUrl + '/HB.php/hbcore/poem/';
+  private heartbeatApiPoets = environment.heartbeatApiRootUrl + '/poets/';
+  private heartbeatApiPoet = environment.heartbeatApiRootUrl + '/poet/';
+  private heartbeatApiPoems = environment.heartbeatApiRootUrl + '/poems/';
+  private heartbeatApiPoem = environment.heartbeatApiRootUrl + '/poem/';
 
   constructor(private http: HttpClient, private translate: TranslateService) { }
 

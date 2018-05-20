@@ -8,7 +8,7 @@ import { User } from './hb-classes/user';
 @Injectable()
 export class AuthenticationService {
 
-  private heartbeatApiAuth = environment.heartbeatApiRootUrl + '/HB.php/hbcore/';
+  private heartbeatApiAuth = environment.heartbeatApiRootUrl + '/';
 
   constructor(private http: HttpClient) { }
 
