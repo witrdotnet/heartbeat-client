@@ -1,8 +1,8 @@
 import { Verse } from './verse';
 
 export class Poem {
-  id: number;
-  name: string;
+  poemId: number;
+  title: string;
   verses: Verse[];
 }
 

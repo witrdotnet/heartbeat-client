@@ -1,6 +1,6 @@
 <pagination-controls (pageChange)="getPage($event)" previousLabel="{{ 'pagination.previous' | translate }}" nextLabel="{{ 'pagination.next' | translate }}"></pagination-controls>
-<div class="deewenOwnerPanel {{ rtl }}" *ngFor="let poem of poems | paginate: { itemsPerPage: paginationParam.itemsPerPage, currentPage: paginationParam.currentPage, totalItems: paginationParam.totalItems }" routerLink="/poem/{{ poet.id }}/{{ poem.id }}">
-        <span class="deewenOwner" title="{{ poem.name }}">{{ poem.name }}</span>
+<div class="deewenOwnerPanel {{ rtl }}" *ngFor="let poem of poems | paginate: { itemsPerPage: paginationParam.itemsPerPage, currentPage: paginationParam.currentPage, totalItems: paginationParam.totalItems }" routerLink="/poem/{{ poet.poetId }}/{{ poem.poemId }}">
+        <span class="deewenOwner" title="{{ poem.title }}">{{ poem.title }}</span>
         <div class="deewenOwnerPoemCount">{{ poem.versesCount || 0 }}</div>
         <div class="deewenOwnerPoemCountLabel">{{ 'verse(s)'  | translate }}</div>
 </div>

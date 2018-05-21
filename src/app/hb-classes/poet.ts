@@ -1,5 +1,5 @@
 export class Poet {
-  id: number;
+  poetId: number;
   name: string;
   poemsPublishedCount: number;
 }

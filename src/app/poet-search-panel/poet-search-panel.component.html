@@ -15,7 +15,7 @@
   </div>
 
   <!-- menu all poems titles -->
-  <div class="svg-menu-link" title="Home" routerLink="/poet/{{ poet.id }}">
+  <div class="svg-menu-link" title="Home" routerLink="/poet/{{ poet.poetId }}">
     <object class="svg-menu-object" type="image/svg+xml" data="./assets/images/list.svg"> </object>
     <span class="svgmask svgmask-adapt"></span>
   </div>
@@ -36,7 +36,7 @@
 
   <!-- menu PDF -->
   <!--
-  <div class="svg-menu-link" (click)="../deewenyPDF?poetId={{poet.id}}&lang={{lang.substring(0,2)}}" target="_blank" title="Download PDF">
+  <div class="svg-menu-link" (click)="../deewenyPDF?poetId={{poet.poetId}}&lang={{lang.substring(0,2)}}" target="_blank" title="Download PDF">
     <object class="svg-menu-object" type="image/svg+xml" data="../resources/images/pdf.svg"> </object>
     <span class="svgmask svgmask-adapt"></span>
   </div>

@@ -5,6 +5,6 @@
 
 export const environment = {
   production: false,
-  heartbeatApiRootUrl: 'http://172.17.0.3/heartbeat/restapi/HB.php/hbcore',
-  emptySearchTerm: ''
+  heartbeatApiRootUrl: 'http://127.0.0.1:9001',
+  emptySearchTerm: '*'
 };

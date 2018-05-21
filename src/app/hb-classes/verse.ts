@@ -1,4 +1,5 @@
 export class Verse {
-  id: number;
+  verseId: number;
+  sort: number;
   text: string;
 }

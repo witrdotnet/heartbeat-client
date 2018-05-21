@@ -41,7 +41,7 @@ export class PoemsListComponent implements OnChanges {
   }
 
     reloadPoems(page: number) {
-      this.hbRest.getPoems(this.poet.id, page, this.paginationParam.itemsPerPage, this.searchTerm).subscribe(response => {
+      this.hbRest.getPoems(this.poet.poetId, page, this.paginationParam.itemsPerPage, this.searchTerm).subscribe(response => {
         this.paginationParam.totalItems = response.totalItems;
         this.paginationParam.currentPage = page;
         this.poems = response.items;

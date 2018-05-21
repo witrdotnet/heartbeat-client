@@ -19,11 +19,17 @@ export class HbRestService {
 
   getPoets(page: number, itemsPerPage: number, searchTerm: string): Observable<PoetsSearchResult> {
     var from: number = (page -1) * itemsPerPage;
+    if (!searchTerm) {
+      searchTerm = environment.emptySearchTerm;
+    }
     return this.http.get<PoetsSearchResult>(this.heartbeatApiPoets + this.translate.currentLang + "/" + searchTerm + "/" + itemsPerPage + "/" + from);
   }
 
   getPoems(poetId: number, page: number, itemsPerPage: number, searchTerm: string): Observable<PoemsSearchResult> {
     var from: number = (page -1) * itemsPerPage;
+    if (!searchTerm) {
+      searchTerm = environment.emptySearchTerm;
+    }
     return this.http.get<PoemsSearchResult>(this.heartbeatApiPoems + poetId + "/" + searchTerm + "/" + itemsPerPage + "/" + from);
   }
 
