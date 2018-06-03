@@ -1,7 +1,7 @@
 export class Poet {
   poetId: number;
   name: string;
-  poemsPublishedCount: number;
+  poemsCount: number;
 }
 
 export class PoetsSearchResult {
