@@ -11,7 +11,7 @@ import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
   template: `
   <hb-poet-search-panel *ngIf="poet" [poet]="poet" (searchChange)="poemsListComponent.onSearchChange($event)" [rtl]="rtl"></hb-poet-search-panel>
   <hb-poems-list *ngIf="poet && !selectedPoem" #poemsListComponent [poet]="poet" [rtl]="rtl"></hb-poems-list>
-  <hb-poem *ngIf="poet && selectedPoem" class="hb-poem-panel" [poem]="selectedPoem"></hb-poem>
+  <hb-poem *ngIf="poet && selectedPoem" class="hb-poem-panel" [poem]="selectedPoem" [poet]="poet"></hb-poem>
   `,
   styles: []
 })

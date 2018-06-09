@@ -2,7 +2,7 @@
   <div class="rubrique_title">
     <div>{{ poem.title }}</div>
   </div>
-  <table class="" style="width:100%;">
+  <table class="{{ direction }}" style="width:100%;">
     <tbody>
       <tr *ngFor="let versesRow of versesRows">
         <td *ngFor="let verse of versesRow" class="col_1_0">{{ verse.text.replace("WITR_BREAK_SECTION","***") }}</td>

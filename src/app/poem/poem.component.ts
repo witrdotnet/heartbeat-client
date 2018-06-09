@@ -10,13 +10,16 @@ import { Verse } from '../hb-classes/verse';
 export class PoemComponent implements OnChanges {
 
   @Input() poem: Poem;
+  @Input() poet: Poet;
   versesRows: Verse[][] = [];
+  direction: string = "ltr";
 
   constructor() { }
 
   ngOnChanges(changes: SimpleChanges) {
     for (let propName in changes) {
       if(propName === "poem") {
+        this.direction = this.poet.lang.toUpperCase() === "AR" ? "rtl" : "ltr";
         this.reloadVerses();
       }
     }
