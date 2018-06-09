@@ -23,7 +23,7 @@ export class PoemComponent implements OnChanges {
   }
 
   reloadVerses() {
-    var index:number = 0;
+    var index:number = 1;
     var colsCount:number = this.poem.displayModeDetails.columnCount;
     var verses: Verse[] = [];
     this.versesRows = [];
@@ -31,7 +31,7 @@ export class PoemComponent implements OnChanges {
     for (var verseId in this.poem.verses) {
       if (this.poem.verses.hasOwnProperty(verseId)) {
         verses.push(this.poem.verses[verseId]);
-        if (index%colsCount == 1) {
+        if (index%colsCount == 0) {
           this.versesRows.push(verses);
           verses = [];
         }
