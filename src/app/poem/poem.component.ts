@@ -10,7 +10,7 @@ import { Verse } from '../hb-classes/verse';
 export class PoemComponent implements OnChanges {
 
   @Input() poem: Poem;
-  verses: Verse[] = [];
+  versesRows: Verse[][] = [];
 
   constructor() { }
 
@@ -23,10 +23,19 @@ export class PoemComponent implements OnChanges {
   }
 
   reloadVerses() {
-    this.verses = [];
+    var index:number = 0;
+    var colsCount:number = this.poem.displayModeDetails.columnCount;
+    var verses: Verse[] = [];
+    this.versesRows = [];
+
     for (var verseId in this.poem.verses) {
       if (this.poem.verses.hasOwnProperty(verseId)) {
-        this.verses.push(this.poem.verses[verseId]);
+        verses.push(this.poem.verses[verseId]);
+        if (index%colsCount == 1) {
+          this.versesRows.push(verses);
+          verses = [];
+        }
+        index++;
       }
     }
   }
