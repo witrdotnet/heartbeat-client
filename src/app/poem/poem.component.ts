@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { Poem } from '../hb-classes/poem';
+import { Poet } from '../hb-classes/poet';
 import { Verse } from '../hb-classes/verse';
 
 @Component({

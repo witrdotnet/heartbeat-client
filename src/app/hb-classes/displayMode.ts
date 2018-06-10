@@ -1,5 +1,5 @@
 export class DisplayMode {
-  displayModeId: number,
-  displayModeName: string,
-  columnCount: number
+  displayModeId: number;
+  displayModeName: string;
+  columnCount: number;
 }
