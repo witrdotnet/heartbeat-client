@@ -2,7 +2,7 @@
 
 ng serve --environment=dev-spring
 
-== Credit authorships :
+# Credit authorships :
  - write.svg : http://www.flaticon.com/free-icon/poetry-symbol-of-a-feather-in-ink-container_45820
  - poet.svg : http://www.flaticon.com/free-icon/user-male-black-shape_34368
  - pdf.svg : http://www.flaticon.com/free-icon/pdf-file-symbol_51110
@@ -22,6 +22,6 @@ ng serve --environment=dev-spring
  - list.svg : http://www.flaticon.com/free-icon/shopping-list_1351
  - delete.svg : http://www.flaticon.com/free-icon/delete-photo_61391
 
-== Free icons :
+# Free icons :
  - loading.gif : created with http://spiffygif.com/
 
