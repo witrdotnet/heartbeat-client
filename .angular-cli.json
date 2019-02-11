@@ -26,6 +26,7 @@
       "environments": {
         "dev": "environments/environment.ts",
         "dev-spring": "environments/environment.spring.ts",
+        "dev-docker": "environments/environment.docker.ts",
         "prod": "environments/environment.prod.ts"
       }
     }
