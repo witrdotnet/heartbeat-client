@@ -1,7 +1,12 @@
 # start app
 
+first, start heartbeat-server
+
+then:
+```
 ng build
 ng serve --environment=dev-docker
+```
 
 # Credit authorships :
  - write.svg : http://www.flaticon.com/free-icon/poetry-symbol-of-a-feather-in-ink-container_45820

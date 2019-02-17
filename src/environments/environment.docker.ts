@@ -5,6 +5,6 @@
 
 export const environment = {
   production: false,
-  heartbeatApiRootUrl: 'https://127.0.0.1',
+  heartbeatApiRootUrl: 'https://heartbeat-api.docker.local',
   emptySearchTerm: '*'
 };

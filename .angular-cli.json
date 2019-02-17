@@ -27,7 +27,8 @@
         "dev": "environments/environment.ts",
         "dev-spring": "environments/environment.spring.ts",
         "dev-docker": "environments/environment.docker.ts",
-        "prod": "environments/environment.prod.ts"
+        "prod-11": "environments/environment.prod_11.ts",
+        "prod-gcloud": "environments/environment.prod_gcloud.ts"
       }
     }
   ],
