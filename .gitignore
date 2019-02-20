@@ -1,2 +1,8 @@
+dist
 node_modules
+
+docker/logs
+docker/nginx-server.crt
+docker/nginx-server.key
+
 .idea
