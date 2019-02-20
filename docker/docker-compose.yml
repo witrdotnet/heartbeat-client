@@ -6,9 +6,11 @@ services:
     container_name: heartbeat-client
     ports:
       - "443:443"
+      - "80:80"
     volumes:
       - ./nginx.conf:/etc/nginx/conf.d/default.conf
       - ./nginx-server.crt:/etc/nginx/ssl/server.crt
       - ./nginx-server.key:/etc/nginx/ssl/server.key
       - ./logs/:/var/log/nginx/
+      - ./welcome:/var/www/welcome
       - ../dist:/var/www/heartbeat
