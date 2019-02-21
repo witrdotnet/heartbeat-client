@@ -8,7 +8,7 @@ sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout ./nginx-server.
 
 Build heartbeat-client dist
 ```
-ng build --env=dev-docker
+ng build --env=dev
 ```
 
 # start docker container

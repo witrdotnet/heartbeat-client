@@ -1,12 +1,19 @@
-# start app
+# Start on dev mode
 
-first, start heartbeat-server
+First, start heartbeat-server.
 
-then:
+Then:
 ```
 ng build
-ng serve --environment=dev-docker
+ng serve --environment=dev
 ```
+
+# Start on docker
+
+First start heartbeat-server.
+
+Then:
+[start on docker](./docker/README.md)
 
 # Credit authorships :
  - write.svg : http://www.flaticon.com/free-icon/poetry-symbol-of-a-feather-in-ink-container_45820
