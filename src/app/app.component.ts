@@ -26,8 +26,8 @@ export class AppComponent {
     });
     // the lang to use, if the lang isn't available, it will use the current loader to get them
     if(this.translate.currentLang === undefined) {
-    console.log("currenLang is undefined");
-      this.translate.use('ar');
+      console.log("currenLang is undefined, use browser lang:" + this.translate.getBrowserLang());
+      this.translate.use(this.translate.getBrowserLang());
     }
   }
 

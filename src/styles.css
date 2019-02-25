@@ -99,6 +99,7 @@ imgMirrorH{
 }
 
 .siteTitle, a.siteTitle:hover, a.siteTitle:visited, a.siteTitle:link, a.siteTitle:active {
+	cursor: pointer;
 	text-shadow:#fff 0px 1px 0, #000 0 -1px 0;
 	font-size:45px;
 	font-weight:bold;

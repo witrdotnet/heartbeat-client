@@ -27,6 +27,7 @@ export class PoetsListComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.resetPoets();
   }
 
   getPage(page: number) {
