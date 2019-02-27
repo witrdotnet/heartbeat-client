@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { User } from '../hb-classes/user';
+import { HbSocialUser } from '../hb-classes/user';
 import { AuthenticationService } from '../hb.auth.service';
 
 @Component({
@@ -20,7 +21,7 @@ export class HbMenuComponent implements OnInit {
 
   ngOnInit() {
     this.refreshCurrentUser();
-    this.authService.socialAuthService.authState.subscribe((socialUser) => { this.refreshCurrentUser() });
+    this.authService.authState.subscribe((state) => { this.refreshCurrentUser() });
   }
 
   login() {

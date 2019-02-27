@@ -49,7 +49,6 @@ export class PoetHomeComponent implements OnInit {
     this.hbRest.getPoet(Number(poetid)).subscribe(poet => {
       this.poet = poet;
       if(this.poet && poemid) {
-        console.log("about to select poem " + poemid);
         this.hbRest.getPoem(Number(poetid), Number(poemid)).subscribe(poem => {
           this.selectedPoem = poem;
         });
