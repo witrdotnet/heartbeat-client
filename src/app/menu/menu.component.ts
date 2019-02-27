@@ -16,12 +16,11 @@ export class HbMenuComponent implements OnInit {
   model: any = {};
   loading = false;
 
-  constructor(public authService: AuthenticationService) {
-    this.refreshCurrentUser();
-  }
+  constructor(private authService: AuthenticationService) { }
 
   ngOnInit() {
     this.refreshCurrentUser();
+    this.authService.socialAuthService.authState.subscribe((socialUser) => { this.refreshCurrentUser() });
   }
 
   login() {
@@ -40,8 +39,17 @@ export class HbMenuComponent implements OnInit {
               });
   }
 
+  loginGoogle(): void {
+    this.authService.signInWithGoogle();
+  }
+
   logout() {
     this.authService.logout();
+    this.refreshCurrentUser();
+  }
+
+  isLoggedIn() {
+    return this.authService.isLoggedIn();
   }
 
   refreshCurrentUser() {

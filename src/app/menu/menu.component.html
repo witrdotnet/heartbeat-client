@@ -3,7 +3,7 @@
 		<a id="simple-menu" (click)="sidenav.toggle()"></a>
 	</div>
 
-	<form class="loginPanel {{ rtl }} panelFloat{{ rtl }}" name="form" *ngIf="!authService.isLoggedIn()" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
+	<form class="loginPanel {{ rtl }} panelFloat{{ rtl }}" name="form" *ngIf="false && !isLoggedIn()" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
 		<div>
 			<div class="field_label">{{ 'login' | translate }}</div>
 			<div><input class="field_input" type="text" name="user" [(ngModel)]="model.username" #username="ngModel" required /></div>
@@ -17,7 +17,7 @@
 		</div>
 	</form>
 
-	<form class="loginPanel {{ rtl }} panelFloat{{ rtl }}" name="form" *ngIf="authService.isLoggedIn()" (ngSubmit)="f.form.valid && logout()" #f="ngForm" novalidate>
+	<form class="loginPanel {{ rtl }} panelFloat{{ rtl }}" name="form" *ngIf="false && isLoggedIn()" (ngSubmit)="f.form.valid && logout()" #f="ngForm" novalidate>
 		<div>
 			<div class="field_label">{{ currentUser.nickname }}</div>
 		</div>
@@ -33,7 +33,24 @@
 		</div>
 	</form>
 
-	<div class="actionsPanel {{ rtl }}" *ngIf="!authService.isLoggedIn()">
+
+	<div class="loginPanel {{ rtl }} panelFloat{{ rtl }}" *ngIf="isLoggedIn()">
+		<img class="social-photo" src="{{ currentUser.socialUser.photoUrl }}">
+	</div>
+
+	<div class="loginPanel {{ rtl }} panelFloat{{ rtl }} loginPanelGoogle" *ngIf="isLoggedIn()" (click)="logout()">
+		<div class="loginSubmit">
+			<span class="btn btn-primary" > {{ currentUser.socialUser.name }} | {{ 'disconnect' | translate }}</span>
+		</div>
+	</div>
+
+	<div class="loginPanel {{ rtl }} panelFloat{{ rtl }} loginPanelGoogle" *ngIf="!isLoggedIn()" (click)="loginGoogle()">
+		<div class="loginSubmit">
+			<span class="btn btn-primary" >{{ 'connection' | translate }}</span>
+		</div>
+	</div>
+
+	<div class="actionsPanel {{ rtl }}" *ngIf="!isLoggedIn()">
 		<div class="field_label">
 			<a class="register" target="_top" href="signup">{{ 'sign up' | translate }}</a>
 		</div>

@@ -29,10 +29,24 @@ import { JwtInterceptor } from './hb.jwt.interceptor';
 
 import { NgxPaginationModule } from 'ngx-pagination';
 
+import { SocialLoginModule, AuthServiceConfig } from "angularx-social-login";
+import { GoogleLoginProvider } from "angularx-social-login";
+
 // translate i18n ngx-translate
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http, "./assets/i18n/", ".json");
 };
+
+let config = new AuthServiceConfig([
+  {
+    id: GoogleLoginProvider.PROVIDER_ID,
+    provider: new GoogleLoginProvider("63362889028-c8ansooj7coeda1mii0a94uoh4ga1677.apps.googleusercontent.com")
+  }
+]);
+
+export function provideConfig() {
+  return config;
+}
 
 @NgModule({
   declarations: [
@@ -54,6 +68,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     NoopAnimationsModule,
     MatSidenavModule,
     HttpClientModule,
+    SocialLoginModule,
     TranslateModule.forRoot({
             loader: {
                 provide: TranslateLoader,
@@ -67,6 +82,10 @@ export function HttpLoaderFactory(http: HttpClient) {
   providers: [
     HbRestService,
     AuthenticationService,
+    {
+        provide: AuthServiceConfig,
+        useFactory: provideConfig
+    },
     {
         provide: HTTP_INTERCEPTORS,
         useClass: JwtInterceptor,

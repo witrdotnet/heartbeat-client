@@ -1,4 +1,6 @@
-﻿export class User {
+﻿import { SocialUser } from "angularx-social-login";
+
+export class User {
     id: number;
     username: string;
     password: string;
@@ -6,4 +8,5 @@
     birthname: string;
     nickname: string;
     token: string;
+    socialUser: SocialUser;
 }
