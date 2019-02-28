@@ -14,3 +14,9 @@ services:
       - ./logs/:/var/log/nginx/
       - ./welcome:/var/www/welcome
       - ../dist:/var/www/heartbeat
+    networks:
+      - heartbeat
+
+networks:
+  heartbeat:
+
