@@ -5,7 +5,7 @@ First, start heartbeat-server.
 Then:
 ```
 ng build
-ng serve --environment=dev
+ng serve
 ```
 
 # Start on docker
