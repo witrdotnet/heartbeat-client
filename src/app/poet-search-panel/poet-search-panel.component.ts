@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Poet } from '../hb-classes/poet';
 import { TranslateService } from '@ngx-translate/core';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'hb-poet-search-panel',
@@ -9,6 +10,7 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class PoetSearchPanelComponent implements OnInit {
 
+    public version: string = environment.VERSION;
     @Input() rtl: string = '';
     @Input() poet: Poet;
     @Input() searchTerm: string = '';
