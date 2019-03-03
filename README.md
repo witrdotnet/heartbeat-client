@@ -15,6 +15,10 @@ First start heartbeat-server.
 Then:
 [start on docker](./docker/README.md)
 
+# Deploy with ansible
+
+[simply deploy with ansible even in your local host](./deployment/README.md)
+
 # Credit authorships :
  - write.svg : http://www.flaticon.com/free-icon/poetry-symbol-of-a-feather-in-ink-container_45820
  - poet.svg : http://www.flaticon.com/free-icon/user-male-black-shape_34368
