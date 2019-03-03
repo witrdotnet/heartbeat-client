@@ -11,9 +11,17 @@ sudo python -m pip install pyOpenSSL
 
 # deploy on localhost
 
+First build angular app and tar gzip "dist/" folder: 
+
+```
+ng build -c local
+tar czvf heartbeat-client-$(date +%Y%m%d.%H%M).tgz dist
+```
+
+Then
 ```
 # note the "-K" parameter necessary to ask password on localhost
-ansible-playbook -i inventories/local/hosts playbook-heartbeat-client.yml -K
+ansible-playbook -i inventories/local/hosts playbook-heartbeat-client.yml -K --extra-vars "dist_filegz_local_path='..' dist_filegz_name='heartbeat-client-<date>.tgz'"
 ```
 
 # deploy on demo
@@ -22,12 +30,12 @@ First build angular app and tar gzip "dist/" folder:
 
 ```
 ng build -c demo
-tar czvf heartbeat-client-<YYYYMMDD.HH.mm>.tgz dist
+tar czvf heartbeat-client-$(date +%Y%m%d.%H%M).tgz dist
 ```
 
 Then
 ```
-ansible-playbook -i inventories/demo/hosts playbook-heartbeat-client.yml
+ansible-playbook -i inventories/demo/hosts playbook-heartbeat-client.yml --extra-vars "dist_filegz_local_path='..' dist_filegz_name='heartbeat-client-<date>.tgz'"
 ```
 
 # deploy on staging
@@ -36,9 +44,10 @@ First build angular app:
 
 ```
 ng build
+tar czvf heartbeat-client-$(date +%Y%m%d.%H%M).tgz dist
 ```
 
 Then
 ```
-ansible-playbook -i inventories/staging/hosts playbook-heartbeat-client.yml
+ansible-playbook -i inventories/staging/hosts playbook-heartbeat-client.yml --extra-vars "dist_filegz_local_path='..' dist_filegz_name='heartbeat-client-<date>.tgz'"
 ```

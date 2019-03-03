@@ -17,7 +17,9 @@ Then:
 
 # Deploy with ansible
 
-[simply deploy with ansible even in your local host](./deployment/README.md)
+Use provided script to deploy on any environment: ./deploy.sh
+
+For manual deployment, check: [simply deploy with ansible even in your local host](./deployment/README.md)
 
 # Credit authorships :
  - write.svg : http://www.flaticon.com/free-icon/poetry-symbol-of-a-feather-in-ink-container_45820
