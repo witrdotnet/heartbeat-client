@@ -1,0 +1,2 @@
+[heartbeat-client-hosts]
+localhost ansible_connection=local
