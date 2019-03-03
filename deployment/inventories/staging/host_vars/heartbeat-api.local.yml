@@ -1,0 +1,3 @@
+---
+compose_project_path: '/srv/heartbeat-client'
+ssl_cert_generate_selfsigned: True

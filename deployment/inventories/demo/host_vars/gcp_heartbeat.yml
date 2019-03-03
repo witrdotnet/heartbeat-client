@@ -1,0 +1,7 @@
+---
+compose_project_path: '/srv/heartbeat-client'
+
+ssl_cert_generate_selfsigned: False
+ssl_certificate_path: '/etc/letsencrypt/live/heartbeat.witr.net'
+ssl_certificate_crt_name: 'fullchain.pem'
+ssl_certificate_key_name: 'privkey.pem'

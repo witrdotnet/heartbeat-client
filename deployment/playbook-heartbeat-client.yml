@@ -1,0 +1,149 @@
+---
+
+- hosts: heartbeat-client-hosts
+  become: yes
+
+  tasks:
+
+# ################################# create user and group
+
+  - name: Ensure group '{{ heartbeat_group }}' exists
+    group:
+      name: '{{ heartbeat_group }}'
+      state: present
+
+  - name: Add the user '{{ heartbeat_user }}' with group '{{ heartbeat_group }}'
+    user:
+      name: '{{ heartbeat_user }}'
+      comment: heartbeat user
+      #      uid: 1040
+      group: '{{ heartbeat_group }}'
+
+# ################################# down docker-compose if running
+
+  - name: check if docker-compose definition exists
+    stat: 
+      path: "{{ compose_project_path }}/docker-compose.yml"
+    register: already_deployed
+
+  - name: stop containers
+    command: docker-compose down
+    args:
+      chdir: "{{ compose_project_path }}"
+    when: already_deployed.stat.exists == True
+
+# ################################# install structure (heartbeat directories, docker-compose definition, nginx config, ...)
+
+  - name: create if missed main directory
+    file:
+      path: "{{ compose_project_path }}"
+      owner: "{{ heartbeat_user }}"
+      group: "{{ heartbeat_group }}"
+      state: directory
+
+  - name: create if missed directory logs
+    file:
+      path: "{{ compose_project_path }}/logs"
+      owner: "{{ heartbeat_user }}"
+      group: "{{ heartbeat_group }}"
+      state: directory
+
+  - name: create if missed directory welcome
+    synchronize:
+      src: ./resources/welcome
+      dest: "{{ compose_project_path }}/"
+      archive: yes
+      delete: yes
+
+  - name: change welcome and content owner/group
+    file:
+      path: "{{ compose_project_path }}/welcome"
+      recurse: yes
+      owner: "{{ heartbeat_user }}"
+      group: "{{ heartbeat_group }}"
+
+  - name: copy docker-compose definition file
+    template:
+      src: ./resources/templates/docker-compose.yml.j2
+      dest: "{{ compose_project_path }}/docker-compose.yml"
+      owner: "{{ heartbeat_user }}"
+      group: "{{ heartbeat_group }}"
+
+  - name: copy nginx configuration file
+    template:
+      src: ./resources/templates/nginx.conf.j2
+      dest: "{{ compose_project_path }}/nginx.conf"
+      owner: "{{ heartbeat_user }}"
+      group: "{{ heartbeat_group }}"
+
+# ################################# generate self signed certificate (if enabled)
+
+  - name: Generate an OpenSSL private key with the default values (4096 bits, RSA)
+    openssl_privatekey:
+      path: "{{ ssl_cert_generate_selfsigned_path }}/{{ ssl_cert_generate_selfsigned_key_name }}"
+    when: ssl_cert_generate_selfsigned == True
+    tags:
+      - cert_self_signed
+
+  - name: Generate an OpenSSL Certificate Signing Request
+    openssl_csr:
+      path: "{{ ssl_cert_generate_selfsigned_path }}/{{ ssl_cert_generate_selfsigned_csr_name }}"
+      privatekey_path: "{{ ssl_cert_generate_selfsigned_path }}/{{ ssl_cert_generate_selfsigned_key_name }}"
+      common_name: heartbeat-selfsigned.local
+    when: ssl_cert_generate_selfsigned == True
+    tags:
+      - cert_self_signed
+
+  - name: Generate a Self Signed OpenSSL certificate
+    openssl_certificate:
+      path: "{{ ssl_cert_generate_selfsigned_path }}/{{ ssl_cert_generate_selfsigned_crt_name }}"
+      privatekey_path: "{{ ssl_cert_generate_selfsigned_path }}/{{ ssl_cert_generate_selfsigned_key_name }}"
+      csr_path: "{{ ssl_cert_generate_selfsigned_path }}/{{ ssl_cert_generate_selfsigned_csr_name }}"
+      provider: selfsigned
+    when: ssl_cert_generate_selfsigned == True
+    tags:
+      - cert_self_signed
+
+  - name: change generated self signed cert files ownership
+    file:
+      path: "{{ ssl_cert_generate_selfsigned_path }}/{{ item }}"
+      owner: "{{ heartbeat_user }}"
+      group: "{{ heartbeat_group }}"
+    with_items:
+      - "{{ ssl_cert_generate_selfsigned_crt_name }}"
+      - "{{ ssl_cert_generate_selfsigned_key_name }}"
+      - "{{ ssl_cert_generate_selfsigned_csr_name }}"
+    when: ssl_cert_generate_selfsigned == True
+    tags:
+      - cert_self_signed
+
+# ################################# install angular dist folder
+
+  - name: copy angular dist gzipped file
+    copy:
+      src: "{{ dist_filegz_local_path }}/{{ dist_filegz_name }}"
+      dest: "{{ compose_project_path }}/{{ dist_filegz_name }}"
+      owner: "{{ heartbeat_user }}"
+      group: "{{ heartbeat_group }}"
+
+  - name: remove dist folder if exists
+    file:
+      path: "{{ compose_project_path }}/dist"
+      owner: "{{ heartbeat_user }}"
+      group: "{{ heartbeat_group }}"
+      state: absent
+
+  - name: unarchive angular dist gzipped file
+    unarchive:
+      src: "{{ compose_project_path }}/{{ dist_filegz_name }}"
+      dest: "{{ compose_project_path }}/"
+      remote_src: yes
+      owner: "{{ heartbeat_user }}"
+      group: "{{ heartbeat_group }}"
+
+# ################################# start containers
+
+  - name: start containers
+    command: docker-compose up -d
+    args:
+      chdir: "{{ compose_project_path }}"

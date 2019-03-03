@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  heartbeat-client:
+    image: nginx
+    container_name: heartbeat-client
+    ports:
+      - "443:443"
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+      - {{ ssl_certificate_path }}/{{ ssl_certificate_crt_name }}:/etc/nginx/ssl/{{ ssl_certificate_crt_name }}
+      - {{ ssl_certificate_path }}/{{ ssl_certificate_key_name }}:/etc/nginx/ssl/{{ ssl_certificate_key_name }}
+      - ./logs/:/var/log/nginx/
+      - ./welcome:/var/www/welcome
+      - ./dist:/var/www/heartbeat
+    networks:
+      - heartbeat
+
+networks:
+  heartbeat:
+

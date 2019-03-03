@@ -1,0 +1,18 @@
+---
+compose_project_path: '/srv/heartbeat-client'
+
+heartbeat_user: 'heartbeat'
+heartbeat_group: 'heartbeat'
+
+dist_filegz_local_path: '..'
+dist_filegz_name: 'heartbeat-client-20190301.0141.tgz'
+
+ssl_cert_generate_selfsigned: True
+ssl_cert_generate_selfsigned_path: '{{ compose_project_path }}'
+ssl_cert_generate_selfsigned_csr_name: 'nginx-selfsigned.csr'
+ssl_cert_generate_selfsigned_crt_name: 'nginx-selfsigned.crt'
+ssl_cert_generate_selfsigned_key_name: 'nginx-selfsigned.key'
+
+ssl_certificate_path: '{{ ssl_cert_generate_selfsigned_path }}'
+ssl_certificate_crt_name: '{{ ssl_cert_generate_selfsigned_crt_name }}'
+ssl_certificate_key_name: '{{ ssl_cert_generate_selfsigned_key_name }}'
