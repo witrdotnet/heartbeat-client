@@ -10,12 +10,23 @@ function usage {
 	echo "============"
 }
 
-if [ -z "$1" ]
+
+if [ $# -eq 0 ]
 then
-	echo "Error: missed argument"
-	usage
-	exit
+        echo -e "\nError: missed target environment"
+        usage
+        exit
 fi
+
+case $1 in
+        local|demo|staging)
+                echo -e "\nStart deployment ...";;
+        *)
+                echo -e "\nError: invalid argument \"$1\""
+                usage
+		exit;;
+esac
+
 
 TARGET_ENVIRONMENT=$1
 ASK_PASSWORD=""
