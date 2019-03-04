@@ -3,6 +3,9 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
+    "preversion": "ng build -c demo",
+    "version": "tar czvf ${npm_package_name}-${npm_package_version}.tgz dist",
+    "postversion": "echo \"finalize release manually with: git push && git push --tags\"",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build --prod",
