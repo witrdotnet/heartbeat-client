@@ -115,15 +115,10 @@ imgMirrorH{
 	font-size: 10px;
 	position: relative;
 	color: grey;
-	bottom: 10px;
-	left: 50px;
+	bottom: 0px;
+	left: 0px;
 	vertical-align: super;
 	text-decoration: none;
-}
-
-.siteTitleBetartl {
-	bottom: 60px;
-	left: -60px;
 }
 
 .siteOwnerTitle {
