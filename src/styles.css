@@ -502,6 +502,7 @@ div.poemTags a{
 .deewenOwnerPoemCountLabel{
 	font-size: 12px;
 	text-align: center;
+	margin-top: -10px;
 }
 
 .deewenPoemPanel{
