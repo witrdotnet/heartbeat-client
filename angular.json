@@ -23,7 +23,10 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/analytics/matomo.conf.js",
+              "src/analytics/matomo.js"
+            ]
           },
           "configurations": {
             "local": {
@@ -40,6 +43,10 @@
                 {
                   "replace": "src/environments/environment.ts",
                   "with": "src/environments/environment.local.ts"
+                },
+                {
+                  "replace": "src/analytics/matomo.conf.js",
+                  "with": "src/analytics/conf/matomo.conf.local.js"
                 }
               ]
             },
@@ -57,6 +64,10 @@
                 {
                   "replace": "src/environments/environment.ts",
                   "with": "src/environments/environment.demo.ts"
+                },
+                {
+                  "replace": "src/analytics/matomo.conf.js",
+                  "with": "src/analytics/conf/matomo.conf.demo.js"
                 }
               ]
             },
@@ -79,6 +90,9 @@
             "browserTarget": "angular:build"
           },
           "configurations": {
+            "local": {
+              "browserTarget": "angular:build:local"
+            },
             "demo": {
               "browserTarget": "angular:build:demo"
             },

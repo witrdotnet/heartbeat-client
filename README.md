@@ -21,6 +21,16 @@ Use provided script to deploy on any environment: ./deploy.sh
 
 For manual deployment, check: [simply deploy with ansible even in your local host](./deployment/README.md)
 
+# Analytics
+
+Heartbeat uses [matomo](https://github.com/matomo-org/matomo) as web analytics tool.
+
+Simply configured with three properties in `src/analytics/matomo.conf.js`:
+
+* matomoEnabled=false; // enable/disable matomo
+* matomoUrl=""; // matomo server URL
+* matomoSiteId=""; // site id registered within matomo server
+
 # Credit authorships :
  - write.svg : http://www.flaticon.com/free-icon/poetry-symbol-of-a-feather-in-ink-container_45820
  - poet.svg : http://www.flaticon.com/free-icon/user-male-black-shape_34368
