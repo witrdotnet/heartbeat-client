@@ -37,9 +37,7 @@
     "rxjs": "^6.4.0",
     "rxjs-compat": "^6.4.0",
     "tslib": "^1.9.0",
-    "zone.js": "^0.8.29"
-  },
-  "devDependencies": {
+    "zone.js": "^0.8.29",
     "@angular-devkit/build-angular": "^0.13.3",
     "@angular/cli": "^7.3.3",
     "@angular/compiler-cli": "^7.2.6",
@@ -59,5 +57,7 @@
     "tslint": "^5.13.0",
     "typescript": "^3.2.4",
     "webpack": "^4.29.5"
+  },
+  "devDependencies": {
   }
 }
